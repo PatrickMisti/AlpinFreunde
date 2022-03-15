@@ -1,0 +1,6 @@
+.idea
+db
+db/
+target/
+.env.app
+.env.db

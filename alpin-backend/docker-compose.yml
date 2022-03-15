@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  wildfly:
+    container_name: app
+    build:
+      context: docker/wildfly
+      args:
+        WFLY_USER: admin
+        WFLY_PASS: pati
+        DB_NAME: alpinDB
+        DB_USER: app
+        DB_PASS: app
+        DB_JNDI: AlpinDS
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+    depends_on:
+      - db
+#    env_file:
+#      - ./.env.app
+  db:
+    container_name: db
+    image: mysql:8.0.28
+    ports:
+      - "5000:3306"
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+    env_file:
+      - ./.env.db
