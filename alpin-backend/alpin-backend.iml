@@ -7,8 +7,8 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
           <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -16,7 +16,10 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Alpin" />
+          <factory-entry name="test" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
@@ -38,6 +41,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: javax:javaee-web-api:8.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.28" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
@@ -58,5 +62,9 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.istack:istack-commons-runtime:4.0.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: jakarta.inject:jakarta.inject-api:2.0.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.antlr:antlr4-runtime:4.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:jaxrs-api:3.0.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.json.bind:javax.json.bind-api:1.0" level="project" />
   </component>
 </module>
