@@ -1,12 +1,17 @@
 package at.alpin.alpinbackend.entities;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "User")
+@NamedQueries({
+        @NamedQuery(name = "findAllUser",query = "select u from User u"),
+        @NamedQuery(name = "findUserById", query = "select u from User u where u.id = :id"),
+        @NamedQuery(name = "deleteUserById", query = "delete from User u where u.id = :id")
+})
 public class User extends BaseEntity{
     private String FirstName;
     private String LastName;
@@ -15,11 +20,12 @@ public class User extends BaseEntity{
     private String EMail;
     private boolean E_PushNotification;
     private boolean PushNotification;
-    @ManyToMany
-    @JoinTable(name = "Trip",
-            joinColumns = @JoinColumn(name = "User_Id"),
-            inverseJoinColumns = @JoinColumn(name = "TripAppointment_Id"))
+    @ManyToMany(mappedBy = "Users")
     private Set<TripAppointment> TripAppointments;
+
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Role.class)
+    @JoinColumn(name = "Role_id")
+    private Role role;
 
     public User(Timestamp timestamp, String firstName, String lastName, String userName, String password, String EMail, boolean e_PushNotification, boolean pushNotification, Set<TripAppointment> tripAppointment) {
         super(timestamp);
@@ -33,6 +39,18 @@ public class User extends BaseEntity{
         TripAppointments = tripAppointment;
     }
 
+    public User(User user) {
+        FirstName = user.getFirstName();
+        LastName = user.getLastName();
+        UserName = user.getUserName();
+        Password = user.getPassword();
+        this.EMail = user.getEMail();
+        E_PushNotification = user.isE_PushNotification();
+        PushNotification = user.isPushNotification();
+        TripAppointments = user.TripAppointments;
+        this.role = user.role;
+    }
+
     public User(Timestamp timestamp, String firstName, String lastName, String userName, String password, String EMail, boolean e_PushNotification, boolean pushNotification) {
         super(timestamp);
         FirstName = firstName;
@@ -42,6 +60,38 @@ public class User extends BaseEntity{
         this.EMail = EMail;
         E_PushNotification = e_PushNotification;
         PushNotification = pushNotification;
+        this.TripAppointments = new HashSet<>();
+    }
+
+    public User(String firstName, String lastName, String userName, String password, String EMail, Role role) {
+        FirstName = firstName;
+        LastName = lastName;
+        UserName = userName;
+        Password = password;
+        this.role = role;
+        this.EMail = EMail;
+        this.TripAppointments = new HashSet<>();
+    }
+
+    public User(String firstName, String lastName, String userName, String password, String EMail, boolean e_PushNotification, boolean pushNotification, Set<TripAppointment> tripAppointments, Role role) {
+        FirstName = firstName;
+        LastName = lastName;
+        UserName = userName;
+        Password = password;
+        this.EMail = EMail;
+        E_PushNotification = e_PushNotification;
+        PushNotification = pushNotification;
+        TripAppointments = tripAppointments;
+        this.role = role;
+    }
+
+    public User(String firstName, String lastName, String userName, String password, Role role) {
+        FirstName = firstName;
+        LastName = lastName;
+        UserName = userName;
+        Password = password;
+        this.role = role;
+        this.TripAppointments = new HashSet<>();
     }
 
     public User() {
@@ -112,10 +162,12 @@ public class User extends BaseEntity{
     }
 
     public void addTripAppointment(TripAppointment tripAppointment){
-        if(!TripAppointments.contains(tripAppointment)){
+        /*if(!TripAppointments.contains(tripAppointment)){
             TripAppointments.add(tripAppointment);
             tripAppointment.addUser(this);
-        }
+        }*/
+        TripAppointments.add(tripAppointment);
+        tripAppointment.addUser(this);
     }
 
     public void removeTripAppointment(TripAppointment tripAppointment) {

@@ -1,14 +1,21 @@
 package at.alpin.alpinbackend.entities;
+import at.alpin.alpinbackend.entities.Utility;
 
-import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "TripAppointment")
-public class TripAppointment extends BaseEntity{
+@NamedQueries({
+        @NamedQuery(name = "findAllTripAppointment", query = "select t from TripAppointment t"),
+        @NamedQuery(name = "findTripAppointmentById", query = "select t from TripAppointment t where t.id = :id"),
+        @NamedQuery(name = "deleteTripAppointmentById", query = "delete from TripAppointment t where t.id = :id")
+})
+public class TripAppointment extends BaseEntity {
     private String Title;
     @ManyToOne
     private Category Category;
@@ -26,13 +33,13 @@ public class TripAppointment extends BaseEntity{
     private boolean IsAccessiblePlace;
     private boolean IsTicketNeeded;
     @ManyToMany
-    @JoinTable(name = "Trip",
-            joinColumns = @JoinColumn(name = "TripAppointment_Id"),
-            inverseJoinColumns = @JoinColumn(name = "User_Id"))
+    @JoinTable(name = "Trip_User_History",
+            joinColumns = @JoinColumn(name = "TripAppointment_id"),
+            inverseJoinColumns = @JoinColumn(name = "User_id"))
     private Set<User> Users;
 
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    private Set<UtilityList> Utility;
+    @OneToMany
+    private Set<Utility> Utility;
 
     public TripAppointment(Timestamp timestamp, String title, Category category, Date date, String location) {
         super(timestamp);
@@ -40,9 +47,20 @@ public class TripAppointment extends BaseEntity{
         Category = category;
         Date = date;
         Location = location;
+        this.Users = new HashSet<>();
+        this.Utility = new HashSet<>();
     }
 
-    public TripAppointment(Timestamp timestamp, String title, at.alpin.alpinbackend.entities.Category category, java.util.Date date, String location, int phone, String source, String junk, double heightDifference, String GPS, String description, double distance, String warningDescription, double accessiblePlace, boolean isAccessiblePlace, boolean isTicketNeeded, Set<User> users, Set<UtilityList> utility) {
+    public TripAppointment(String title, at.alpin.alpinbackend.entities.Category category, java.util.Date date, String location) {
+        Title = title;
+        Category = category;
+        Date = date;
+        Location = location;
+        this.Users = new HashSet<>();
+        this.Utility = new HashSet<>();
+    }
+
+    public TripAppointment(Timestamp timestamp, String title, Category category, Date date, String location, int phone, String source, String junk, double heightDifference, String GPS, String description, double distance, String warningDescription, double accessiblePlace, boolean isAccessiblePlace, boolean isTicketNeeded, Set<User> users, Set<Utility> utility) {
         super(timestamp);
         Title = title;
         Category = category;
@@ -61,9 +79,13 @@ public class TripAppointment extends BaseEntity{
         IsTicketNeeded = isTicketNeeded;
         Users = users;
         Utility = utility;
+        this.Users = new HashSet<>();
+        this.Utility = new HashSet<>();
     }
 
     public TripAppointment() {
+        this.Users = new HashSet<>();
+        this.Utility = new HashSet<>();
     }
 
     public String getTitle() {
@@ -194,19 +216,20 @@ public class TripAppointment extends BaseEntity{
         Users = users;
     }
 
-    public Set<UtilityList> getUtility() {
+    public Set<at.alpin.alpinbackend.entities.Utility> getUtility() {
         return Utility;
     }
 
-    public void setUtility(Set<UtilityList> utility) {
+    public void setUtility(Set<at.alpin.alpinbackend.entities.Utility> utility) {
         Utility = utility;
     }
 
     public void addUser(User user) {
-        if(!Users.contains(user)){
+        /*if(!Users.contains(user)){
             Users.add(user);
             user.addTripAppointment(this);
-        }
+        }*/
+        Users.add(user);
     }
 
     public void removeUser(User user) {
@@ -216,7 +239,7 @@ public class TripAppointment extends BaseEntity{
         }
     }
 
-    public void addUtility(UtilityList item) {
+    public void addUtility(at.alpin.alpinbackend.entities.Utility item) {
         Utility.add(item);
     }
 }

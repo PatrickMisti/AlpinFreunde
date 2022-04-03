@@ -1,17 +1,17 @@
 package at.alpin.alpinbackend.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
+
+    @Version
+    private Long version;
 
     private Timestamp timestamp;
 
@@ -23,7 +23,7 @@ public class BaseEntity {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public Timestamp getTimestamp() {

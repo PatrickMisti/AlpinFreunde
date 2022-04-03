@@ -1,21 +1,26 @@
 package at.alpin.alpinbackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "TripSuggestion")
+@Table(name = "TripSuggestion")// left join User u on t.User_id = u.id
+@NamedQueries({
+        @NamedQuery(name = "findAllTripSuggestion", query = "select t from TripSuggestion t"),
+        @NamedQuery(name = "findTripSuggestionById", query = "select t from TripSuggestion t where t.id = :id"),
+        @NamedQuery(name = "deleteTripSuggestionById", query = "delete from TripSuggestion t where t.id = :id")
+})
 public class TripSuggestion extends BaseEntity{
     private String WebsiteLink;
     private String Title;
     private String Description;
     private boolean PublicShown;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "User_id")
     private User User;
 
     public TripSuggestion(Timestamp timestamp, String websiteLink, String title, String description, boolean publicShown, User user) {
@@ -27,13 +32,27 @@ public class TripSuggestion extends BaseEntity{
         User = user;
     }
 
-    public TripSuggestion(Timestamp timestamp,String title,User user) {
+    public TripSuggestion(String websiteLink, String title, String description, boolean publicShown, User user) {
+        WebsiteLink = websiteLink;
+        Title = title;
+        Description = description;
+        PublicShown = publicShown;
+        User = user;
+    }
+
+    public TripSuggestion(Timestamp timestamp, String title, User user) {
         super(timestamp);
         Title = title;
         User = user;
     }
 
-    public TripSuggestion() {
+    public TripSuggestion(){}
+
+    public TripSuggestion(TripSuggestion trip) {
+        WebsiteLink = trip.getWebsiteLink();
+        Title = trip.getTitle();
+        Description = trip.getDescription();
+        PublicShown = trip.isPublicShown();
     }
 
     public String getWebsiteLink() {
@@ -74,5 +93,17 @@ public class TripSuggestion extends BaseEntity{
 
     public void setUser(at.alpin.alpinbackend.entities.User user) {
         User = user;
+    }
+
+    @Override
+    public String toString() {
+        JsonObject builder = Json.createObjectBuilder()
+                .add("id", this.getId())
+                .add("description", this.getDescription())
+                .add("publicShown", this.isPublicShown())
+                .add("title", this.getTitle())
+                .add("websiteLink", this.getWebsiteLink())
+                .add("user_id", this.getUser().getId()).build();
+        return builder.toString();
     }
 }

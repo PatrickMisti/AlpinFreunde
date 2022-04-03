@@ -21,7 +21,7 @@ USER jboss
 RUN $JBOSS_HOME/tmp/wildfly-config.sh "$DB_JNDI"
 RUN rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/
 
-EXPOSE 8080 9990
+EXPOSE 8080 9990 8787
 #ADD demo.war $JBOSS_HOME/standalone/deployments/
 #rm tmp folder
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "--debug"]
