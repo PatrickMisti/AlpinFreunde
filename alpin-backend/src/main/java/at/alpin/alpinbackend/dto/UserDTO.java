@@ -7,6 +7,7 @@ import javax.json.JsonObjectBuilder;
 import java.util.logging.Logger;
 
 public class UserDTO {
+    private Long id;
     private String firstName;
     private String lastName;
     private String userName;
@@ -15,7 +16,19 @@ public class UserDTO {
     private boolean e_PushNotification;
     private boolean pushNotification;
 
-    public UserDTO(String firstName, String lastName, String userName, String password, String EMail, boolean e_PushNotification, boolean pushNotification) {
+    public UserDTO(User user){
+        this(user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getUserName(),
+                user.getPassword(),
+                user.getEMail(),
+                user.isE_PushNotification(),
+                user.isPushNotification());
+    }
+
+    public UserDTO(Long id,String firstName, String lastName, String userName, String password, String EMail, boolean e_PushNotification, boolean pushNotification) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -25,15 +38,14 @@ public class UserDTO {
         this.pushNotification = pushNotification;
     }
 
-    public static JsonObject makeUser(User user) {
-        Logger logger = Logger.getLogger("testing it");
-//        logger.warning("tessting" + user.getId().toString());
 
+
+    public JsonObject toJson() {
         return Json.createObjectBuilder()
-//                .add("id",user.getId())
-                .add("firstname",user.getFirstName())
-                .add("lastname",user.getLastName())
-                .add("username",user.getUserName())
+                .add("id", this.id)
+                .add("firstname",this.firstName)
+                .add("lastname",this.lastName)
+                .add("username",this.userName)
                 .build();
     }
 

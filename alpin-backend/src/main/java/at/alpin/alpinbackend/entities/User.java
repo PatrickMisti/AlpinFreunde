@@ -40,6 +40,7 @@ public class User extends BaseEntity{
     }
 
     public User(User user) {
+        super(user.getId());
         FirstName = user.getFirstName();
         LastName = user.getLastName();
         UserName = user.getUserName();

@@ -18,6 +18,10 @@ public abstract class BaseEntity {
     public BaseEntity() {
     }
 
+    public BaseEntity(Long id) {
+        this.id = id;
+    }
+
     public BaseEntity(Timestamp timestamp) {
         this.timestamp = timestamp;
     }

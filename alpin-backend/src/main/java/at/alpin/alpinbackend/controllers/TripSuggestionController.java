@@ -27,20 +27,7 @@ public class TripSuggestionController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllTripSuggestion() {
-//        Jsonb jsonb = JsonbBuilder.create();
-//        logger.warning("beforeto json");
-        //jsonb.toJson(service.findAllFromTripSuggestion());
-        /*logger.warning("befor builder");
-        StringBuilder builder = new StringBuilder();
-        logger.warning("befor foreach");
-        service.findAllFromTripSuggestion().forEach(item -> {
-            builder.append(item);
-            logger.warning("item "+item.toString());
-        });
-        logger.warning(builder.toString());*/
-        logger.warning("befor builder");
-        JsonArray array = service.findAllFromTripSuggestion();
-        return Response.ok().entity(array).build();
+        return Response.ok().entity(service.findAllFromTripSuggestion()).build();
     }
 
     @POST
