@@ -15,6 +15,9 @@ RUN mkdir /opt/jboss/wildfly/tmp
 ADD mysql-connector-java-8.0.28.jar $JBOSS_HOME/tmp
 ADD wildfly-config.sh /$JBOSS_HOME/tmp
 USER root
+#only for debugging
+#ADD standalone.conf $JBOSS_BIN/
+
 RUN chmod 777 $JBOSS_HOME/tmp/wildfly-config.sh
 USER jboss
 

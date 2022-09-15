@@ -4,9 +4,12 @@ import at.alpin.alpinbackend.entities.User;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 public class UserDTO {
+    private Logger logger = Logger.getLogger(UserDTO.class.toString());
+
     private Long id;
     private String firstName;
     private String lastName;
@@ -41,12 +44,17 @@ public class UserDTO {
 
 
     public JsonObject toJson() {
-        return Json.createObjectBuilder()
-                .add("id", this.id)
-                .add("firstname",this.firstName)
-                .add("lastname",this.lastName)
-                .add("username",this.userName)
-                .build();
+        try {
+            return Json.createObjectBuilder()
+                    .add("id", Optional.ofNullable(this.id).orElse(0L))
+                    .add("firstname", this.firstName)
+                    .add("lastname", this.lastName)
+                    .add("username", this.userName)
+                    .build();
+        } catch (RuntimeException e) {
+            logger.severe("Json building error: " + e);
+            return Json.createObjectBuilder().build();
+        }
     }
 
 }

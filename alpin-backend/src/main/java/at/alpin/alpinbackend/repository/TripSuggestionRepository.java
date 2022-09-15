@@ -28,15 +28,10 @@ public class TripSuggestionRepository {
                 .getResultList()
                 .stream()
                 .map(item -> {
-                    logger.warning("in item stream "+ item.getId());
                     TripSuggestionDTO s = new TripSuggestionDTO(item);
-                    logger.warning("after in item stream "+ item.getId());
                     return s.toJson();
                 }).collect(Collectors.toList());
-        logger.warning("finish it");
-//        logger.warning("build jsonobject"+obj.toArray().length);
         JsonArrayBuilder result = Json.createArrayBuilder();
-
         obj.forEach(item -> result.add(item));
 
         return result.build();

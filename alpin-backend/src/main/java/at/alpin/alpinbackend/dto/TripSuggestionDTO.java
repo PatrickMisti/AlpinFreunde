@@ -11,7 +11,7 @@ import javax.json.bind.JsonbBuilder;
 import java.util.logging.Logger;
 
 public class TripSuggestionDTO {
-    Logger logger = Logger.getLogger(TripSuggestionDTO.class.toString());
+    private Logger logger = Logger.getLogger(TripSuggestionDTO.class.toString());
 
     private Long id;
     private String websiteLink;
@@ -41,13 +41,20 @@ public class TripSuggestionDTO {
     public JsonObject toJson() {
         return buildTrip().add("user", new UserDTO(user).toJson()).build();
     }
+
+
     private JsonObjectBuilder buildTrip() {
-        JsonObjectBuilder obj = Json.createObjectBuilder()
-                .add("id", this.id)
-                .add("description", this.description)
-                .add("title", this.title)
-                .add("publicShown", this.publicShown)
-                .add("websiteLink",this.websiteLink);
-        return obj;
+        try {
+            JsonObjectBuilder obj = Json.createObjectBuilder()
+                    .add("id", this.id)
+                    .add("description", this.description)
+                    .add("title", this.title)
+                    .add("publicShown", this.publicShown)
+                    .add("websiteLink", this.websiteLink);
+            return obj;
+        } catch (RuntimeException e) {
+            logger.severe("Json building error: " + e);
+            return Json.createObjectBuilder();
+        }
     }
 }

@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @NamedQueries({
         @NamedQuery(name = "findAllUtilities",query = "select u from Utility u")
 })
-public class Utility extends BaseEntity implements Serializable {
+public class Utility extends BaseEntity {
     private String Name;
     private boolean IsNeeded;
 
