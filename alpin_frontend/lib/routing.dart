@@ -1,3 +1,4 @@
+import 'package:alpin_frontend/components/login/login_view.dart';
 import 'package:flutter/material.dart';
 
 class RouterGenerator {
@@ -5,6 +6,8 @@ class RouterGenerator {
     final args = settings.arguments;
 
     switch(settings.name) {
+      case "/login":
+        return MaterialPageRoute(builder: (context) => const LoginView());
       default:
         return _errorRoute();
     }
