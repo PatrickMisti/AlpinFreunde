@@ -1,7 +1,7 @@
 
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter/widgets.dart';
 
-class BaseModel extends Model {
+class BaseModel extends ChangeNotifier {
 
   void setState() {
     notifyListeners();

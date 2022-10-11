@@ -50,11 +50,51 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Hello`
+  /// `AlpinFreunde`
   String get title {
     return Intl.message(
-      'Hello',
+      'AlpinFreunde',
       name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let's Start!`
+  String get loginLetsStart {
+    return Intl.message(
+      'Let`s Start!',
+      name: 'loginLetsStart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Swipe`
+  String get loginSwipe {
+    return Intl.message(
+      'Swipe',
+      name: 'loginSwipe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Left to Sign in`
+  String get loginSwipeLeft {
+    return Intl.message(
+      'Left to Sign in',
+      name: 'loginSwipeLeft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Right to without Sign in`
+  String get loginSwipeRight {
+    return Intl.message(
+      'Right to without Sign in',
+      name: 'loginSwipeRight',
       desc: '',
       args: [],
     );

@@ -7,7 +7,7 @@ class RouterGenerator {
 
     switch(settings.name) {
       case "/login":
-        return MaterialPageRoute(builder: (context) => const LoginView());
+        return MaterialPageRoute(builder: (context) => LoginView());
       default:
         return _errorRoute();
     }
