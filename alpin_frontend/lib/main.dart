@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeAlpin.dark(),
         themeMode: ThemeMode.light,
         onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: "/login",
+        initialRoute: "/resetPassword",
       );
     }
     );
@@ -62,5 +62,4 @@ class HomeWidget extends ChangeNotifier {
       notifyListeners();
     });
   }
-
 }

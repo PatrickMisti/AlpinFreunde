@@ -70,6 +70,16 @@ class S {
     );
   }
 
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Swipe`
   String get loginSwipe {
     return Intl.message(
@@ -95,6 +105,146 @@ class S {
     return Intl.message(
       'Right to without Sign in',
       name: 'loginSwipeRight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get username {
+    return Intl.message(
+      'Name',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwort`
+  String get password {
+    return Intl.message(
+      'Passwort',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email is incorrect`
+  String get incorrectEmail {
+    return Intl.message(
+      'Email is incorrect',
+      name: 'incorrectEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is incorrect`
+  String get incorrectPassword {
+    return Intl.message(
+      'Password is incorrect',
+      name: 'incorrectPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is to short`
+  String get toShortPassword {
+    return Intl.message(
+      'Password is to short',
+      name: 'toShortPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in and up the mountain`
+  String get signInButtonLocal {
+    return Intl.message(
+      'Sign in and up the mountain',
+      name: 'signInButtonLocal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget your password?`
+  String get passwordForget {
+    return Intl.message(
+      'Forget your password?',
+      name: 'passwordForget',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oh no! I don´t have any account`
+  String get signUpIfNoAccount {
+    return Intl.message(
+      'Oh no! I don´t have any account',
+      name: 'signUpIfNoAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You lost your password? No problem!\nFollow the instructions step by step`
+  String get resetPasswordFirst {
+    return Intl.message(
+      'You lost your password? No problem!\nFollow the instructions step by step',
+      name: 'resetPasswordFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get resetPassEnterEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'resetPassEnterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter code from the Email`
+  String get resetPassEnterTwoFactor {
+    return Intl.message(
+      'Enter code from the Email',
+      name: 'resetPassEnterTwoFactor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your old and new Password`
+  String get resetPassEnterNewPass {
+    return Intl.message(
+      'Enter your old and new Password',
+      name: 'resetPassEnterNewPass',
       desc: '',
       args: [],
     );

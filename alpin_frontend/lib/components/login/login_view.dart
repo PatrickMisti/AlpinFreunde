@@ -2,27 +2,93 @@ import 'package:alpin_frontend/components/login/login_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatelessWidget {
-  final List<Color> fadeColor = [
+  final List<Color> _fadeColor = [
     Colors.orange,
     Colors.orange.withOpacity(0.5),
     Colors.orange.withOpacity(0)
   ];
-  final List<double> fadeNumber = [0.6, 0.8, 1];
-  final String logoName = "lib/assets/images/logo.png";
+  final List<double> _fadeNumber = [0.6, 0.8, 1];
+  final String _logoName = "lib/assets/images/logo.png";
+  late LoginModel _model;
+  final _emailReg = RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   LoginView({Key? key}) : super(key: key);
 
+
+  swipeToForward(BuildContext context, DragUpdateDetails? details) {
+    if (details == null) return;
+    // swipe left direction
+    if (details.delta.dx < 0) {
+      return Navigator.pushNamed(context, "/overview");
+    }
+    // swipe right direction
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return SimpleDialog(
+          title: Text(translation(context).signIn),
+          children: [
+            ReactiveForm(
+              formGroup: _model.settingsForm,
+              child: Column(
+                children: [
+                  ReactiveTextField(
+                      formControlName: 'email',
+                      validationMessages: {
+                        'required': (error) =>
+                        translation(context).incorrectEmail,
+                        'email': (error) => translation(context).incorrectEmail
+                      },
+                      decoration: InputDecoration(
+                          hintText: translation(context).email)),
+                  ReactiveTextField(
+                    formControlName: 'password',
+                    validationMessages: {
+                      'required': (error) =>
+                      translation(context).incorrectPassword,
+                      'minLength': (error) =>
+                      translation(context).toShortPassword
+                    },
+                    decoration: InputDecoration(
+                        hintText: translation(context).password),
+                  ),
+                  Text(translation(context).passwordForget),
+                  ReactiveValueListenableBuilder<bool>(
+                    formControlName: 'submit',
+                    builder: (context, value, child) {
+                      return ElevatedButton(
+                          onPressed:
+                          !value.value! ? null : () => print("object"),
+                          child: Text(translation(context).signInButtonLocal));
+                    },
+                  ),
+                  Text(translation(context).signUpIfNoAccount)
+                ],
+              ),
+            ),
+          ],
+        );
+      },
+    ).then((value) => _model.settingsForm.reset());
+  }
+
   @override
   Widget build(BuildContext context) => ViewModelBuilder<LoginModel>.reactive(
-      viewModelBuilder: () => LoginModel(),
-      builder: (context, model, child) {
-        Size size = MediaQuery.of(context).size;
-        return Scaffold(
-            body: SizedBox(
-                height: size.height,
+        viewModelBuilder: () => LoginModel(),
+        builder: (context, model, child) {
+          Size size = MediaQuery.of(context).size;
+          _model = model;
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: SizedBox.expand(
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onPanUpdate: (details) => swipeToForward(context, details),
                 child: Stack(
                   children: [
                     Positioned(
@@ -36,12 +102,12 @@ class LoginView extends StatelessWidget {
                                       topRight: Radius.circular(45),
                                       topLeft: Radius.circular(45)),
                                   gradient: LinearGradient(
-                                      colors: fadeColor,
+                                      colors: _fadeColor,
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
-                                      stops: fadeNumber),
+                                      stops: _fadeNumber),
                                   image: DecorationImage(
-                                      image: AssetImage(logoName))),
+                                      image: AssetImage(_logoName))),
                             ))),
                     Positioned(
                         top: size.height * 0.5,
@@ -59,24 +125,29 @@ class LoginView extends StatelessWidget {
                           const Icon(Icons.swipe, size: 40)
                         ])),
                     Positioned(
-                        bottom: 15,
-                        width: size.width,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                  child: Text(
-                                      translation(context).loginSwipeLeft)),
-                              const Spacer(flex: 4),
-                              Flexible(
-                                  child: Text(
-                                      translation(context).loginSwipeRight))
-                            ],
-                          ),
-                        ))
+                      bottom: 15,
+                      width: size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                                child:
+                                    Text(translation(context).loginSwipeLeft)),
+                            const Spacer(flex: 4),
+                            Flexible(
+                                child:
+                                    Text(translation(context).loginSwipeRight))
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
-                )));
-      });
+                ),
+              ),
+            ),
+          );
+        },
+      );
 }

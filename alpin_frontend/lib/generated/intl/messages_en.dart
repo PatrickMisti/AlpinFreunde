@@ -22,12 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "incorrectEmail":
+            MessageLookupByLibrary.simpleMessage("Email is incorrect"),
+        "incorrectPassword":
+            MessageLookupByLibrary.simpleMessage("Password is incorrect"),
         "loginLetsStart": MessageLookupByLibrary.simpleMessage("Let`s Start!"),
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
         "loginSwipeRight":
             MessageLookupByLibrary.simpleMessage("Right to without Sign in"),
-        "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde")
+        "password": MessageLookupByLibrary.simpleMessage("Passwort"),
+        "passwordForget":
+            MessageLookupByLibrary.simpleMessage("Forget your password?"),
+        "resetPassEnterEmail":
+            MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "resetPassEnterNewPass": MessageLookupByLibrary.simpleMessage(
+            "Enter your old and new Password"),
+        "resetPassEnterTwoFactor":
+            MessageLookupByLibrary.simpleMessage("Enter code from the Email"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "resetPasswordFirst": MessageLookupByLibrary.simpleMessage(
+            "You lost your password? No problem!\nFollow the instructions step by step"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signInButtonLocal":
+            MessageLookupByLibrary.simpleMessage("Sign in and up the mountain"),
+        "signUpIfNoAccount": MessageLookupByLibrary.simpleMessage(
+            "Oh no! I don´t have any account"),
+        "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),
+        "toShortPassword":
+            MessageLookupByLibrary.simpleMessage("Password is to short"),
+        "username": MessageLookupByLibrary.simpleMessage("Name")
       };
 }

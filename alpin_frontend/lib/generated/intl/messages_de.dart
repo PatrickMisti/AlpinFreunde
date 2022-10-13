@@ -22,12 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "incorrectEmail":
+            MessageLookupByLibrary.simpleMessage("Email is incorrect"),
+        "incorrectPassword":
+            MessageLookupByLibrary.simpleMessage("Password is incorrect"),
         "loginLetsStart": MessageLookupByLibrary.simpleMessage("Let`s Start!"),
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
         "loginSwipeRight":
             MessageLookupByLibrary.simpleMessage("Right to without Sign in"),
-        "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde")
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordForget": MessageLookupByLibrary.simpleMessage(
+            "Hast du dein Passwort vergessen?"),
+        "resetPassEnterEmail":
+            MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "resetPassEnterNewPass": MessageLookupByLibrary.simpleMessage(
+            "Enter your old and new Password"),
+        "resetPassEnterTwoFactor":
+            MessageLookupByLibrary.simpleMessage("Enter code from the Email"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "resetPasswordFirst": MessageLookupByLibrary.simpleMessage(
+            "You lost your password? No problem!\nFolgen Sie die Anweisungen Schritt für Schritt"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Anmelden"),
+        "signInButtonLocal": MessageLookupByLibrary.simpleMessage(
+            "Rauf auf die Berge und steig ein"),
+        "signUpIfNoAccount": MessageLookupByLibrary.simpleMessage(
+            "Oh no! Ich habe noch keinen Account"),
+        "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),
+        "toShortPassword":
+            MessageLookupByLibrary.simpleMessage("Password is to short"),
+        "username": MessageLookupByLibrary.simpleMessage("Name")
       };
 }

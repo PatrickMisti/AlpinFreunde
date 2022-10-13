@@ -1,7 +1,22 @@
 {
     "title":"AlpinFreunde",
     "loginLetsStart": "Let`s Start!",
+    "signIn": "Sign In",
     "loginSwipe": "Swipe",
     "loginSwipeLeft": "Left to Sign in",
-    "loginSwipeRight": "Right to without Sign in"
+    "loginSwipeRight": "Right to without Sign in",
+    "username": "Name",
+    "password": "Passwort",
+    "email": "Email",
+    "incorrectEmail": "Email is incorrect",
+    "incorrectPassword": "Password is incorrect",
+    "toShortPassword": "Password is to short",
+    "signInButtonLocal": "Sign in and up the mountain",
+    "passwordForget": "Forget your password?",
+    "signUpIfNoAccount": "Oh no! I don´t have any account",
+    "resetPassword": "Reset Password",
+    "resetPasswordFirst": "You lost your password? No problem!\nFollow the instructions step by step",
+    "resetPassEnterEmail": "Enter your email",
+    "resetPassEnterTwoFactor": "Enter code from the Email",
+    "resetPassEnterNewPass": "Enter your old and new Password"
 }
