@@ -42,9 +42,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter your old and new Password"),
         "resetPassEnterTwoFactor":
             MessageLookupByLibrary.simpleMessage("Enter code from the Email"),
+        "resetPassInvalid":
+            MessageLookupByLibrary.simpleMessage("The \$name is invalid"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordFirst": MessageLookupByLibrary.simpleMessage(
-            "You lost your password? No problem!\nFollow the instructions step by step"),
+            "You lost your password? No problem! Follow the instructions step by step"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInButtonLocal":
             MessageLookupByLibrary.simpleMessage("Sign in and up the mountain"),

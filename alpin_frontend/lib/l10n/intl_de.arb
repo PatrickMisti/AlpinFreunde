@@ -15,8 +15,12 @@
     "passwordForget": "Hast du dein Passwort vergessen?",
     "signUpIfNoAccount": "Oh no! Ich habe noch keinen Account",
     "resetPassword": "Reset Password",
-    "resetPasswordFirst": "You lost your password? No problem!\nFolgen Sie die Anweisungen Schritt für Schritt",
+    "resetPasswordFirst": "You lost your password? No problem! Folgen Sie die Anweisungen Schritt für Schritt",
     "resetPassEnterEmail": "Enter your email",
     "resetPassEnterTwoFactor": "Enter code from the Email",
-    "resetPassEnterNewPass": "Enter your old and new Password"
+    "resetPassInvalid": "Der $name is ungültig",
+    "resetPassEnterNewPass": "Enter your old and new Password",
+    "@resTest": {
+        "diis": "hallo"
+    }
 }

@@ -210,10 +210,10 @@ class S {
     );
   }
 
-  /// `You lost your password? No problem!\nFollow the instructions step by step`
+  /// `You lost your password? No problem! Follow the instructions step by step`
   String get resetPasswordFirst {
     return Intl.message(
-      'You lost your password? No problem!\nFollow the instructions step by step',
+      'You lost your password? No problem! Follow the instructions step by step',
       name: 'resetPasswordFirst',
       desc: '',
       args: [],
@@ -235,6 +235,16 @@ class S {
     return Intl.message(
       'Enter code from the Email',
       name: 'resetPassEnterTwoFactor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The $name is invalid`
+  String get resetPassInvalid {
+    return Intl.message(
+      'The \$name is invalid',
+      name: 'resetPassInvalid',
       desc: '',
       args: [],
     );
