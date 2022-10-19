@@ -1,5 +1,6 @@
 import 'package:alpin_frontend/components/login/login_view.dart';
 import 'package:alpin_frontend/components/login/reset/reset_view.dart';
+import 'package:alpin_frontend/components/login/signin/signIn_view.dart';
 import 'package:flutter/material.dart';
 
 class RouterGenerator {
@@ -10,7 +11,9 @@ class RouterGenerator {
       case "/login":
         return MaterialPageRoute(builder: (context) => LoginView());
       case "/resetPassword":
-        return MaterialPageRoute(builder: (context) => ResetPasswordView());
+        return MaterialPageRoute(builder: (context) => const ResetPasswordView());
+      case "/signin":
+        return MaterialPageRoute(builder: (context) => SignInView());
       default:
         return _errorRoute();
     }

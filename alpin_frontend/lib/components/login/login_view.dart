@@ -1,3 +1,4 @@
+import 'package:alpin_frontend/assets/Theme_Alpin.dart';
 import 'package:alpin_frontend/components/login/login_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:flutter/widgets.dart';
@@ -6,19 +7,11 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatelessWidget {
-  final List<Color> _fadeColor = [
-    Colors.orange,
-    Colors.orange.withOpacity(0.5),
-    Colors.orange.withOpacity(0)
-  ];
-  final List<double> _fadeNumber = [0.6, 0.8, 1];
+  final List<double> _fadeNumber = [0.4, 0.7, 1];
   final String _logoName = "lib/assets/images/logo.png";
-  late LoginModel _model;
-  final _emailReg = RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  late final LoginModel _model;
 
   LoginView({Key? key}) : super(key: key);
-
 
   swipeToForward(BuildContext context, DragUpdateDetails? details) {
     if (details == null) return;
@@ -29,8 +22,10 @@ class LoginView extends StatelessWidget {
     // swipe right direction
     return showDialog(
       context: context,
+
       builder: (context) {
         return SimpleDialog(
+          contentPadding: const EdgeInsets.all(20),
           title: Text(translation(context).signIn),
           children: [
             ReactiveForm(
@@ -42,9 +37,11 @@ class LoginView extends StatelessWidget {
                       validationMessages: {
                         'required': (error) =>
                         translation(context).incorrectEmail,
-                        'email': (error) => translation(context).incorrectEmail
+                        'email': (error) =>
+                        translation(context).incorrectEmail
                       },
                       decoration: InputDecoration(
+                         /*const OutlineInputBorder(borderSide: BorderSide(width: 5)),*/
                           hintText: translation(context).email)),
                   ReactiveTextField(
                     formControlName: 'password',
@@ -57,17 +54,21 @@ class LoginView extends StatelessWidget {
                     decoration: InputDecoration(
                         hintText: translation(context).password),
                   ),
-                  Text(translation(context).passwordForget),
+                  TextButton(
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed('/resetPassword'),
+                      child: Text(translation(context).passwordForget)),
                   ReactiveValueListenableBuilder<bool>(
                     formControlName: 'submit',
                     builder: (context, value, child) {
                       return ElevatedButton(
                           onPressed:
-                          !value.value! ? null : () => print("object"),
+                              !value.value! ? null : () => print("object"),
                           child: Text(translation(context).signInButtonLocal));
                     },
                   ),
-                  Text(translation(context).signUpIfNoAccount)
+                  TextButton(onPressed: () => Navigator.of(context).pushNamed("/signin"),
+                      child: Text(translation(context).signUpIfNoAccount))
                 ],
               ),
             ),
@@ -102,7 +103,11 @@ class LoginView extends StatelessWidget {
                                       topRight: Radius.circular(45),
                                       topLeft: Radius.circular(45)),
                                   gradient: LinearGradient(
-                                      colors: _fadeColor,
+                                      colors: [
+                                        ThemeAlpin.light().colorScheme.primary,
+                                        ThemeAlpin.light().colorScheme.primary.withOpacity(0.5),
+                                        ThemeAlpin.light().scaffoldBackgroundColor.withOpacity(0.0)
+                                      ],
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
                                       stops: _fadeNumber),
@@ -110,12 +115,12 @@ class LoginView extends StatelessWidget {
                                       image: AssetImage(_logoName))),
                             ))),
                     Positioned(
-                        top: size.height * 0.5,
+                        top: size.height * 0.55,
                         width: size.width,
                         child: Text(translation(context).title,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                                fontSize: 28, fontWeight: FontWeight.bold))),
+                                fontSize: 30, fontWeight: FontWeight.bold))),
                     Positioned(
                         bottom: 40,
                         width: size.width,

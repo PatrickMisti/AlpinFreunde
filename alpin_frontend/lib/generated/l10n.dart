@@ -240,13 +240,13 @@ class S {
     );
   }
 
-  /// `The $name is invalid`
-  String get resetPassInvalid {
+  /// `The {name} is invalid`
+  String resetPassInvalid(Object name) {
     return Intl.message(
-      'The \$name is invalid',
+      'The $name is invalid',
       name: 'resetPassInvalid',
       desc: '',
-      args: [],
+      args: [name],
     );
   }
 
@@ -255,6 +255,116 @@ class S {
     return Intl.message(
       'Enter your old and new Password',
       name: 'resetPassEnterNewPass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `old Password`
+  String get resetPassChangeOld {
+    return Intl.message(
+      'old Password',
+      name: 'resetPassChangeOld',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `new Password`
+  String get resetPassChangeNew {
+    return Intl.message(
+      'new Password',
+      name: 'resetPassChangeNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `new Password again`
+  String get resetPassChangeNewConfirmation {
+    return Intl.message(
+      'new Password again',
+      name: 'resetPassChangeNewConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The passwords are different`
+  String get resetPassNotConfirmationCorrect {
+    return Intl.message(
+      'The passwords are different',
+      name: 'resetPassNotConfirmationCorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not save Password. Error with Server`
+  String get resetPassChangeFailed {
+    return Intl.message(
+      'Could not save Password. Error with Server',
+      name: 'resetPassChangeFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Your Account`
+  String get signInTitle {
+    return Intl.message(
+      'Create Your Account',
+      name: 'signInTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Firstname`
+  String get firstName {
+    return Intl.message(
+      'Firstname',
+      name: 'firstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lastname`
+  String get lastName {
+    return Intl.message(
+      'Lastname',
+      name: 'lastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send e-mail push notification`
+  String get emailPush {
+    return Intl.message(
+      'Send e-mail push notification',
+      name: 'emailPush',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send push notification`
+  String get push {
+    return Intl.message(
+      'Send push notification',
+      name: 'push',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
       desc: '',
       args: [],
     );

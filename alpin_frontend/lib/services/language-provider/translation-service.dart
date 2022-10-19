@@ -22,6 +22,10 @@ class TranslationService {
   BehaviorSubject<Locale> get language => _locale;
 }
 
-AppLocalizations translation(BuildContext context){
+AppLocalizations translation(BuildContext context) {
   return AppLocalizations.of(context)!;
+}
+
+AppLocalizations? translations(BuildContext context) {
+  return AppLocalizations.of(context);
 }

@@ -20,14 +20,20 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
+  static String m0(name) => "Der ${name} is ungültig";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailPush": MessageLookupByLibrary.simpleMessage(
+            "Send e-mail push notification"),
+        "firstName": MessageLookupByLibrary.simpleMessage("Firstname"),
         "incorrectEmail":
-            MessageLookupByLibrary.simpleMessage("Email is incorrect"),
+            MessageLookupByLibrary.simpleMessage("Email ist falsch"),
         "incorrectPassword":
             MessageLookupByLibrary.simpleMessage("Password is incorrect"),
-        "loginLetsStart": MessageLookupByLibrary.simpleMessage("Let`s Start!"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Lastname"),
+        "loginLetsStart": MessageLookupByLibrary.simpleMessage("Los gehts!"),
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
@@ -36,20 +42,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordForget": MessageLookupByLibrary.simpleMessage(
             "Hast du dein Passwort vergessen?"),
+        "push": MessageLookupByLibrary.simpleMessage("Send push notification"),
+        "resetPassChangeFailed": MessageLookupByLibrary.simpleMessage(
+            "Could not save Password. Error with Server"),
+        "resetPassChangeNew":
+            MessageLookupByLibrary.simpleMessage("new Password"),
+        "resetPassChangeNewConfirmation":
+            MessageLookupByLibrary.simpleMessage("new Password again"),
+        "resetPassChangeOld":
+            MessageLookupByLibrary.simpleMessage("old Password"),
         "resetPassEnterEmail":
             MessageLookupByLibrary.simpleMessage("Enter your email"),
         "resetPassEnterNewPass": MessageLookupByLibrary.simpleMessage(
             "Enter your old and new Password"),
         "resetPassEnterTwoFactor":
             MessageLookupByLibrary.simpleMessage("Enter code from the Email"),
-        "resetPassInvalid":
-            MessageLookupByLibrary.simpleMessage("Der \$name is ungültig"),
+        "resetPassInvalid": m0,
+        "resetPassNotConfirmationCorrect": MessageLookupByLibrary.simpleMessage(
+            "Die Passwörter sind unterschiedlich"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordFirst": MessageLookupByLibrary.simpleMessage(
             "You lost your password? No problem! Folgen Sie die Anweisungen Schritt für Schritt"),
+        "save": MessageLookupByLibrary.simpleMessage("Speichern"),
         "signIn": MessageLookupByLibrary.simpleMessage("Anmelden"),
         "signInButtonLocal": MessageLookupByLibrary.simpleMessage(
             "Rauf auf die Berge und steig ein"),
+        "signInTitle":
+            MessageLookupByLibrary.simpleMessage("Create Your Account"),
         "signUpIfNoAccount": MessageLookupByLibrary.simpleMessage(
             "Oh no! Ich habe noch keinen Account"),
         "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),

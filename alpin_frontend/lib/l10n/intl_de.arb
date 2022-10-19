@@ -1,6 +1,6 @@
 {
     "title":"AlpinFreunde",
-    "loginLetsStart": "Let`s Start!",
+    "loginLetsStart": "Los gehts!",
     "signIn": "Anmelden",
     "loginSwipe": "Swipe",
     "loginSwipeLeft": "Left to Sign in",
@@ -8,7 +8,7 @@
     "username": "Name",
     "password": "Password",
     "email": "Email",
-    "incorrectEmail": "Email is incorrect",
+    "incorrectEmail": "Email ist falsch",
     "incorrectPassword": "Password is incorrect",
     "toShortPassword": "Password is to short",
     "signInButtonLocal": "Rauf auf die Berge und steig ein",
@@ -18,9 +18,22 @@
     "resetPasswordFirst": "You lost your password? No problem! Folgen Sie die Anweisungen Schritt für Schritt",
     "resetPassEnterEmail": "Enter your email",
     "resetPassEnterTwoFactor": "Enter code from the Email",
-    "resetPassInvalid": "Der $name is ungültig",
+    "resetPassInvalid": "Der {name} is ungültig",
+    "@resetPassInvalid": {
+        "placeholders": {
+            "name": {}
+        }
+    },
     "resetPassEnterNewPass": "Enter your old and new Password",
-    "@resTest": {
-        "diis": "hallo"
-    }
+    "resetPassChangeOld": "old Password",
+    "resetPassChangeNew": "new Password",
+    "resetPassChangeNewConfirmation": "new Password again",
+    "resetPassNotConfirmationCorrect": "Die Passwörter sind unterschiedlich",
+    "resetPassChangeFailed": "Could not save Password. Error with Server",
+    "signInTitle": "Create Your Account",
+    "firstName": "Firstname",
+    "lastName": "Lastname",
+    "emailPush": "Send e-mail push notification",
+    "push": "Send push notification",
+    "save": "Speichern"
 }
