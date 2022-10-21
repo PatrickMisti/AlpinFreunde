@@ -1,13 +1,16 @@
 import 'package:alpin_frontend/assets/Theme_Alpin.dart';
 import 'package:alpin_frontend/components/login/login_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatelessWidget {
-  final List<double> _fadeNumber = [0.4, 0.7, 1];
+  final Map<double, Color> _fade = {
+    0.4: ThemeAlpin.light().colorScheme.primary,
+    0.7: ThemeAlpin.light().colorScheme.primary.withOpacity(0.5),
+    1: ThemeAlpin.light().scaffoldBackgroundColor.withOpacity(0.0)
+  };
   final String _logoName = "lib/assets/images/logo.png";
   late final LoginModel _model;
 
@@ -22,7 +25,6 @@ class LoginView extends StatelessWidget {
     // swipe right direction
     return showDialog(
       context: context,
-
       builder: (context) {
         return SimpleDialog(
           contentPadding: const EdgeInsets.all(20),
@@ -36,20 +38,19 @@ class LoginView extends StatelessWidget {
                       formControlName: 'email',
                       validationMessages: {
                         'required': (error) =>
-                        translation(context).incorrectEmail,
-                        'email': (error) =>
-                        translation(context).incorrectEmail
+                            translation(context).incorrectEmail,
+                        'email': (error) => translation(context).incorrectEmail
                       },
                       decoration: InputDecoration(
-                         /*const OutlineInputBorder(borderSide: BorderSide(width: 5)),*/
+                          /*const OutlineInputBorder(borderSide: BorderSide(width: 5)),*/
                           hintText: translation(context).email)),
                   ReactiveTextField(
                     formControlName: 'password',
                     validationMessages: {
                       'required': (error) =>
-                      translation(context).incorrectPassword,
+                          translation(context).incorrectPassword,
                       'minLength': (error) =>
-                      translation(context).toShortPassword
+                          translation(context).toShortPassword
                     },
                     decoration: InputDecoration(
                         hintText: translation(context).password),
@@ -67,7 +68,9 @@ class LoginView extends StatelessWidget {
                           child: Text(translation(context).signInButtonLocal));
                     },
                   ),
-                  TextButton(onPressed: () => Navigator.of(context).pushNamed("/signin"),
+                  TextButton(
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed("/signin"),
                       child: Text(translation(context).signUpIfNoAccount))
                 ],
               ),
@@ -78,9 +81,25 @@ class LoginView extends StatelessWidget {
     ).then((value) => _model.settingsForm.reset());
   }
 
+  //#region build image view
+  Container buildImage(Size size) => Container(
+        width: size.width,
+        height: size.height * 0.5,
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(45), topLeft: Radius.circular(45)),
+            gradient: LinearGradient(
+                colors: _fade.values.toList(),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: _fade.keys.toList()),
+            image: DecorationImage(image: AssetImage(_logoName))),
+      );
+  //#endregion
+
   @override
   Widget build(BuildContext context) => ViewModelBuilder<LoginModel>.reactive(
-        viewModelBuilder: () => LoginModel(),
+        viewModelBuilder: () => LoginModel(context),
         builder: (context, model, child) {
           Size size = MediaQuery.of(context).size;
           _model = model;
@@ -95,25 +114,7 @@ class LoginView extends StatelessWidget {
                     Positioned(
                         child: Padding(
                             padding: const EdgeInsets.all(10),
-                            child: Container(
-                              width: size.width,
-                              height: size.height * 0.5,
-                              decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.only(
-                                      topRight: Radius.circular(45),
-                                      topLeft: Radius.circular(45)),
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        ThemeAlpin.light().colorScheme.primary,
-                                        ThemeAlpin.light().colorScheme.primary.withOpacity(0.5),
-                                        ThemeAlpin.light().scaffoldBackgroundColor.withOpacity(0.0)
-                                      ],
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      stops: _fadeNumber),
-                                  image: DecorationImage(
-                                      image: AssetImage(_logoName))),
-                            ))),
+                            child: buildImage(size))),
                     Positioned(
                         top: size.height * 0.55,
                         width: size.width,

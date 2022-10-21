@@ -1,11 +1,13 @@
 import 'package:alpin_frontend/components/base_model.dart';
 import 'package:alpin_frontend/services/login-service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class LoginModel extends BaseModel {
-  final _getIt = GetIt.instance;
+  final GetIt _getIt = GetIt.I;
   late FormGroup settingsForm;
+  final BuildContext _context;
 
   bool isCheck = false;
   //services
@@ -13,7 +15,7 @@ class LoginModel extends BaseModel {
 
   FormControl<bool> get submitButton => settingsForm.control('submit') as FormControl<bool>;
 
-  LoginModel() : super() {
+  LoginModel(this._context) : super() {
     _getIt.registerLazySingleton(() => LoginService());
     _loginService = _getIt.get<LoginService>();
     settingsForm = FormGroup({
@@ -26,11 +28,6 @@ class LoginModel extends BaseModel {
         .listen((item) => submitButton.value = settingsForm.valid);
     settingsForm.control('password').valueChanges
         .listen((item) => submitButton.value = settingsForm.valid);
-  }
-
-  test() {
-    if(settingsForm.invalid) return null;
-    return () => print("asdf");
   }
 
   signIn() {}
