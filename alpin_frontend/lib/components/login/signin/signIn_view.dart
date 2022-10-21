@@ -1,8 +1,7 @@
+
 import 'package:alpin_frontend/components/login/signin/signin_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:stacked/stacked.dart';
 
@@ -39,12 +38,13 @@ class SignInView extends StatelessWidget {
       viewModelBuilder: () => SignInModel(context),
       builder: (context, model, child) {
         return Scaffold(
+          appBar: AppBar(),
           body: ReactiveForm(
             formGroup: model.settingsForm,
             child: ListView(
               children: [
                 SizedBox(
-                  height: size.height * 0.3,
+                  height: size.height * 0.25,
                   child: Center(
                     child: Container(
                       child: Image.asset(_logo),

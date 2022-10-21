@@ -1,16 +1,16 @@
 class User {
-  final String userName;
-  final String firstName;
-  final String lastName;
+  String? userName;
+  String? firstName;
+  String? lastName;
   final String email;
   final String password;
   bool? emailPush = false;
   bool? push = false;
 
   User(
-      {required this.userName,
-      required this.firstName,
-      required this.lastName,
+      {this.userName,
+      this.firstName,
+      this.lastName,
       required this.email,
       required this.password,
       this.emailPush,
