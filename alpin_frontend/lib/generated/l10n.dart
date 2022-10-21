@@ -369,6 +369,16 @@ class S {
       args: [],
     );
   }
+
+  /// `{name} already exists!`
+  String alreadyExists(Object name) {
+    return Intl.message(
+      '$name already exists!',
+      name: 'alreadyExists',
+      desc: '',
+      args: [name],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -35,5 +35,11 @@
     "lastName": "Lastname",
     "emailPush": "Send e-mail push notification",
     "push": "Send push notification",
-    "save": "Save"
+    "save": "Save",
+    "alreadyExists": "{name} already exists!",
+    "@alreadyExists": {
+        "placeholders": {
+            "name": {}
+        }
+    }
 }

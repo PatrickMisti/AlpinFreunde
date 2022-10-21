@@ -4,11 +4,7 @@ import 'package:stacked/stacked.dart';
 
 class BaseModel extends BaseViewModel with DisposableState {
 
-  BaseModel(){
-    print('base');
-  }
-
-  /*set sink(StreamSubscription value) => disposabled.sink = value;*/
+  BaseModel();
 
   void setState() {
     notifyListeners();
