@@ -1,12 +1,22 @@
 
 import 'package:alpin_frontend/services/disposabled.dart';
-import 'package:flutter/widgets.dart';
+import 'package:stacked/stacked.dart';
 
-class BaseModel extends ChangeNotifier with DisposableState {
+class BaseModel extends BaseViewModel with DisposableState {
 
+  BaseModel(){
+    print('base');
+  }
 
+  /*set sink(StreamSubscription value) => disposabled.sink = value;*/
 
   void setState() {
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    onDispose();
+    super.dispose();
   }
 }

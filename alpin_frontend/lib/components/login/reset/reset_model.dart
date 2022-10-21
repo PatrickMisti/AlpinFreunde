@@ -17,7 +17,7 @@ class ResetPasswordModel extends BaseModel {
   late BuildContext _context;
 
 
-  ResetPasswordModel(BuildContext context) {
+  ResetPasswordModel(BuildContext context) : super() {
     _context = context;
     _loginService = _getIt.get<LoginService>();
     steps = 0;

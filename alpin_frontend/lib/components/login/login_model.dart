@@ -1,9 +1,7 @@
 import 'package:alpin_frontend/components/base_model.dart';
-import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/services/login-service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:rxdart/rxdart.dart';
 
 class LoginModel extends BaseModel {
   final _getIt = GetIt.instance;
@@ -15,7 +13,7 @@ class LoginModel extends BaseModel {
 
   FormControl<bool> get submitButton => settingsForm.control('submit') as FormControl<bool>;
 
-  LoginModel() {
+  LoginModel() : super() {
     _getIt.registerLazySingleton(() => LoginService());
     _loginService = _getIt.get<LoginService>();
     settingsForm = FormGroup({
