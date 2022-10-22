@@ -4,7 +4,7 @@
     "signIn": "Sign In",
     "loginSwipe": "Swipe",
     "loginSwipeLeft": "Left to Sign in",
-    "loginSwipeRight": "Right to without Sign in",
+    "continueWithoutLogin": "Continue without Sign in",
     "username": "Name",
     "password": "Passwort",
     "email": "Email",

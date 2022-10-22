@@ -100,11 +100,11 @@ class S {
     );
   }
 
-  /// `Right to without Sign in`
-  String get loginSwipeRight {
+  /// `Continue without Sign in`
+  String get continueWithoutLogin {
     return Intl.message(
-      'Right to without Sign in',
-      name: 'loginSwipeRight',
+      'Continue without Sign in',
+      name: 'continueWithoutLogin',
       desc: '',
       args: [],
     );

@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyExists": m0,
+        "continueWithoutLogin":
+            MessageLookupByLibrary.simpleMessage("Continue without Sign in"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailPush": MessageLookupByLibrary.simpleMessage(
             "Send e-mail push notification"),
@@ -40,8 +42,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
-        "loginSwipeRight":
-            MessageLookupByLibrary.simpleMessage("Right to without Sign in"),
         "password": MessageLookupByLibrary.simpleMessage("Passwort"),
         "passwordForget":
             MessageLookupByLibrary.simpleMessage("Forget your password?"),
