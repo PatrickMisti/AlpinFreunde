@@ -4,7 +4,7 @@
     "signIn": "Anmelden",
     "loginSwipe": "Swipe",
     "loginSwipeLeft": "Left to Sign in",
-    "loginSwipeRight": "Right to without Sign in",
+    "continueWithoutLogin": "Continue without Sign in",
     "username": "Name",
     "password": "Password",
     "email": "Email",
@@ -35,5 +35,11 @@
     "lastName": "Lastname",
     "emailPush": "Send e-mail push notification",
     "push": "Send push notification",
-    "save": "Speichern"
+    "save": "Speichern",
+    "alreadyExists": "{name} already exists!",
+    "@alreadyExists": {
+        "placeholders": {
+            "name": {}
+        }
+    }
 }

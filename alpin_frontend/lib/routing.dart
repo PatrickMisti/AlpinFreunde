@@ -3,6 +3,8 @@ import 'package:alpin_frontend/components/login/reset/reset_view.dart';
 import 'package:alpin_frontend/components/login/signin/signIn_view.dart';
 import 'package:flutter/material.dart';
 
+/// The router [args] is like the params in angular
+/// The [name] is the route which component call next
 class RouterGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -19,6 +21,7 @@ class RouterGenerator {
     }
   }
 
+  /// if no router name is equal it should be a alternative route here
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (context) =>
         Scaffold(

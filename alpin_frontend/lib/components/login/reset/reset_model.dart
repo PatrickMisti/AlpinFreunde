@@ -14,11 +14,10 @@ class ResetPasswordModel extends BaseModel {
   // services
   late LoginService _loginService;
   // context
-  late BuildContext _context;
+  final BuildContext _context;
 
 
-  ResetPasswordModel(BuildContext context) {
-    _context = context;
+  ResetPasswordModel(this._context) : super() {
     _loginService = _getIt.get<LoginService>();
     steps = 0;
     isFacCodeCorrect = false;

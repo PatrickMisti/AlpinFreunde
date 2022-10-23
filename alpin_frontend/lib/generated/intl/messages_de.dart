@@ -20,10 +20,15 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
-  static String m0(name) => "Der ${name} is ungültig";
+  static String m0(name) => "${name} already exists!";
+
+  static String m1(name) => "Der ${name} is ungültig";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyExists": m0,
+        "continueWithoutLogin":
+            MessageLookupByLibrary.simpleMessage("Continue without Sign in"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailPush": MessageLookupByLibrary.simpleMessage(
             "Send e-mail push notification"),
@@ -37,8 +42,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
-        "loginSwipeRight":
-            MessageLookupByLibrary.simpleMessage("Right to without Sign in"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordForget": MessageLookupByLibrary.simpleMessage(
             "Hast du dein Passwort vergessen?"),
@@ -57,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter your old and new Password"),
         "resetPassEnterTwoFactor":
             MessageLookupByLibrary.simpleMessage("Enter code from the Email"),
-        "resetPassInvalid": m0,
+        "resetPassInvalid": m1,
         "resetPassNotConfirmationCorrect": MessageLookupByLibrary.simpleMessage(
             "Die Passwörter sind unterschiedlich"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),

@@ -1,4 +1,5 @@
 
+/// loginService controls all get, post and put statements
 class LoginService {
 
   Future<String> sendEmailForCode(String email) async {

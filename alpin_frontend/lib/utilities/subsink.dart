@@ -8,7 +8,7 @@ abstract class SubscriptionLike {
 // https://github.com/CN-Tower/subsink2/blob/master/src/subsink.ts
 class SubSink {
   late List<StreamSubscription> _sub = <StreamSubscription>[];
-  final Map<String, StreamSubscription> _subsPool = {};
+  // final Map<String, StreamSubscription> _subsPool = {};
 
   SubSink();
 
