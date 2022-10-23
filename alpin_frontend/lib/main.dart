@@ -4,6 +4,8 @@ import 'package:alpin_frontend/assets/Theme_Alpin.dart';
 import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/l10n.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
+import 'package:alpin_frontend/utilities/error_handling.dart';
+import 'package:catcher/catcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,10 +13,15 @@ import 'package:stacked/stacked.dart';
 
 /// main methode should initialize all important [services]
 /// call application with [runApp]
+/// init errorHandling
 void main() {
   final getIt = GetIt.instance;
   getIt.registerLazySingleton(() => TranslationService());
-  runApp(const Alpin());
+  Catcher(
+    debugConfig: ErrorHandling.getDebugReport,
+    releaseConfig: ErrorHandling.getReleaseReport,
+    runAppFunction: () => runApp(const Alpin())
+  );
 }
 
 /// init application and setup [theme], [local] and [route]

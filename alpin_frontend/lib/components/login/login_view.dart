@@ -39,8 +39,8 @@ class LoginView extends StatelessWidget {
         builder: (context, model, child) {
           Size size = MediaQuery.of(context).size;
           return Scaffold(
-            body: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+            body: Column(
+              // padding: const EdgeInsets.symmetric(horizontal: 10),
               children: [
                 buildImage(size),
                 SizedBox(
@@ -101,11 +101,14 @@ class LoginView extends StatelessWidget {
                                 Text(translation(context).signUpIfNoAccount)),
                         const Divider(thickness: 2),
                         ElevatedButton( // todo not Implemented yet add // add own google color
-                            onPressed: () => showDialog(
-                                  context: context,
-                                  builder: (context) => const AlertDialog(
-                                      title: Text("not Implemented yet")),
-                                ),
+                            onPressed: () async {
+                              throw ("Halllo");
+                              return await showDialog(
+                                context: context,
+                                builder: (context) => const AlertDialog(
+                                    title: Text("not Implemented yet")),
+                              );
+                            },
                             child: const Text("Google SignIn")),
                         TextButton(
                             onPressed: null,
