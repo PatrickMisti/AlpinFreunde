@@ -102,12 +102,7 @@ class LoginView extends StatelessWidget {
                         const Divider(thickness: 2),
                         ElevatedButton( // todo not Implemented yet add // add own google color
                             onPressed: () async {
-                              throw ("Halllo");
-                              return await showDialog(
-                                context: context,
-                                builder: (context) => const AlertDialog(
-                                    title: Text("not Implemented yet")),
-                              );
+                              throw ("Not Implement yet");
                             },
                             child: const Text("Google SignIn")),
                         TextButton(

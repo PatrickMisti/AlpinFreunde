@@ -1,10 +1,13 @@
 import 'dart:io';
 
 import 'package:alpin_frontend/assets/Theme_Alpin.dart';
+import 'package:alpin_frontend/components/base_model.dart';
 import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/l10n.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
+import 'package:alpin_frontend/services/login_service.dart';
 import 'package:alpin_frontend/utilities/error_handling.dart';
+import 'package:alpin_frontend/utilities/http_wrapper.dart';
 import 'package:catcher/catcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -15,12 +18,13 @@ import 'package:stacked/stacked.dart';
 /// call application with [runApp]
 /// init errorHandling
 void main() {
+  HttpWrapper.httpUrl = "http://";
   final getIt = GetIt.instance;
   getIt.registerLazySingleton(() => TranslationService());
   Catcher(
     debugConfig: ErrorHandling.getDebugReport,
     releaseConfig: ErrorHandling.getReleaseReport,
-    runAppFunction: () => runApp(const Alpin())
+    runAppFunction: () => runApp(const Alpin()),
   );
 }
 
@@ -35,6 +39,8 @@ class Alpin extends StatelessWidget {
         viewModelBuilder: () => HomeWidget(),
         builder: (context, model, child) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        navigatorKey: Catcher.navigatorKey,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         locale: model.locale,
@@ -51,7 +57,7 @@ class Alpin extends StatelessWidget {
 
 /// [ViewModel] for AlpinView
 /// important [services] translationService
-class HomeWidget extends ChangeNotifier {
+class HomeWidget extends BaseModel {
   final getIt = GetIt.instance;
   late TranslationService _translationService;
   late Locale locale;
@@ -69,5 +75,12 @@ class HomeWidget extends ChangeNotifier {
       locale = value;
       notifyListeners();
     });
+  }
+
+  @override
+  void onDispose() {
+    final loginService = getIt.get<LoginService>();
+    getIt.unregister(instance: loginService);
+    super.onDispose();
   }
 }
