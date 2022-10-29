@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyExists": m0,
+        "changeProfileImage":
+            MessageLookupByLibrary.simpleMessage("Edit Image"),
         "continueWithoutLogin":
             MessageLookupByLibrary.simpleMessage("Continue without Sign in"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -67,6 +69,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "resetPasswordFirst": MessageLookupByLibrary.simpleMessage(
             "You lost your password? No problem! Follow the instructions step by step"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "settingsLanguage": MessageLookupByLibrary.simpleMessage("Language"),
+        "settingsPreferencesLabel":
+            MessageLookupByLibrary.simpleMessage("Preferences"),
+        "settingsProfileEdit":
+            MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "settingsProfileLabel": MessageLookupByLibrary.simpleMessage("Profile"),
+        "settingsThemeMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInButtonLocal":
             MessageLookupByLibrary.simpleMessage("Sign in and up the mountain"),

@@ -22,24 +22,29 @@ class ThemeAlpin {
   static ThemeData light() {
     final base = ThemeData.light();
     return base.copyWith(
-        scaffoldBackgroundColor: third,
-        colorScheme: colorSchema,
-        appBarTheme: const AppBarTheme(
-            backgroundColor: third, foregroundColor: primary, elevation: 0),
-        inputDecorationTheme: const InputDecorationTheme(
-          enabledBorder:
-              UnderlineInputBorder(borderSide: BorderSide(color: secondary)),
-        ),
-        buttonTheme: const ButtonThemeData(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(25)))),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-            style: OutlinedButton.styleFrom(
-                disabledBackgroundColor: third,
-                backgroundColor: fourth,
-                foregroundColor: secondary)),
-        checkboxTheme:
-            CheckboxThemeData(fillColor: MaterialStateProperty.all(primary)));
+      primaryColor: primary,
+      secondaryHeaderColor: secondary,
+      scaffoldBackgroundColor: third,
+      colorScheme: colorSchema,
+      appBarTheme: const AppBarTheme(
+          backgroundColor: third, foregroundColor: primary, elevation: 0),
+      inputDecorationTheme: const InputDecorationTheme(
+        enabledBorder:
+            UnderlineInputBorder(borderSide: BorderSide(color: secondary)),
+      ),
+      buttonTheme: const ButtonThemeData(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(25))),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+            disabledBackgroundColor: third,
+            backgroundColor: fourth,
+            foregroundColor: secondary),
+      ),
+      checkboxTheme:
+          CheckboxThemeData(fillColor: MaterialStateProperty.all(primary)),
+    );
   }
 
   static ThemeData dark() {

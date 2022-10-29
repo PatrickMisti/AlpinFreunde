@@ -41,5 +41,12 @@
         "placeholders": {
             "name": {}
         }
-    }
+    },
+    "settings": "Einstellungen",
+    "changeProfileImage": "Profilbild ändern",
+    "settingsProfileLabel": "Profil",
+    "settingsProfileEdit": "Profil ändern",
+    "settingsPreferencesLabel": "Priorität",
+    "settingsLanguage": "Sprache",
+    "settingsThemeMode": "Dark Mode"
 }

@@ -41,5 +41,12 @@
         "placeholders": {
             "name": {}
         }
-    }
+    },
+    "settings": "Settings",
+    "changeProfileImage": "Edit Image",
+    "settingsProfileLabel": "Profile",
+    "settingsProfileEdit": "Edit Profile",
+    "settingsPreferencesLabel": "Preferences",
+    "settingsLanguage": "Language",
+    "settingsThemeMode": "Dark Mode"
 }

@@ -2,6 +2,7 @@ import 'package:alpin_frontend/components/login/login_view.dart';
 import 'package:alpin_frontend/components/login/reset/reset_view.dart';
 import 'package:alpin_frontend/components/login/signin/signIn_view.dart';
 import 'package:alpin_frontend/components/overview/overview_view.dart';
+import 'package:alpin_frontend/components/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 
 /// The router [args] is like the params in angular
@@ -19,8 +20,8 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (context) => SignInView());
       case "/overview":
         return MaterialPageRoute(builder: (context) =>  const OverviewView());
-      case "/profile":
-
+      case "/settings":
+        return MaterialPageRoute(builder: (context) => const SettingsView());
       default:
         return _errorRoute();
     }
