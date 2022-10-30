@@ -14,7 +14,7 @@ class FormWidgetView extends StatelessWidget {
       viewModelBuilder: () => FormWidgetModel(),
       builder: (context, model, child) {
         return ListView.separated(
-            separatorBuilder: (context, index) => Divider(height: 2),
+            separatorBuilder: (context, index) => const Divider(height: .5),
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemCount: inputForm.length,

@@ -21,6 +21,7 @@ void main() {
   HttpWrapper.httpUrl = "http://";
   final getIt = GetIt.instance;
   getIt.registerLazySingleton(() => TranslationService());
+  getIt.registerLazySingleton(() => LoginService());
   Catcher(
     debugConfig: ErrorHandling.getDebugReport,
     releaseConfig: ErrorHandling.getReleaseReport,
@@ -63,7 +64,7 @@ class HomeWidget extends BaseModel {
   late Locale locale;
 
   HomeWidget(){
-    _translationService = getIt.get<TranslationService>();
+
     locale = !L10n.all.contains(Locale(Platform.localeName))
         ? const Locale('en')
         : Locale(Platform.localeName);
@@ -71,6 +72,7 @@ class HomeWidget extends BaseModel {
   }
 
   void registerService() {
+    _translationService = getIt.get<TranslationService>();
     _translationService.language.listen((value) {
       locale = value;
       notifyListeners();
