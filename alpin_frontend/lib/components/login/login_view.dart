@@ -1,5 +1,6 @@
 import 'package:alpin_frontend/assets/Theme_Alpin.dart';
 import 'package:alpin_frontend/components/login/login_model.dart';
+import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -12,8 +13,6 @@ class LoginView extends StatelessWidget {
     1: ThemeAlpin.light().scaffoldBackgroundColor.withOpacity(0.0)
   };
   final String _logoName = "lib/assets/images/logo.png";
-  final String _pathNewAccount = 'signin';
-  final String _pathForgetPassword = 'resetPassword';
 
   LoginView({Key? key}) : super(key: key);
 
@@ -83,7 +82,7 @@ class LoginView extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                              onPressed: () => model.pushRoute(_pathForgetPassword),
+                              onPressed: () => model.pushRoute(RouterGenerator.resetPasswordView),
                               child: Text(translation(context).passwordForget)),
                         ),
                         SizedBox(
@@ -96,7 +95,7 @@ class LoginView extends StatelessWidget {
                                   Text(translation(context).signInButtonLocal)),
                         ),
                         TextButton(
-                            onPressed: () => model.pushRoute(_pathNewAccount),
+                            onPressed: () => model.pushRoute(RouterGenerator.signInView),
                             child:
                                 Text(translation(context).signUpIfNoAccount)),
                         const Divider(thickness: 2),

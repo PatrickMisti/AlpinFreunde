@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:alpin_frontend/components/base_model.dart';
 import 'package:alpin_frontend/components/settings/edit_profile/edit_profile_view.dart';
 import 'package:alpin_frontend/model/widget/list_tile_model.dart';
+import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/services/login_service.dart';
 import 'package:alpin_frontend/utilities/mock/MockData.dart';
@@ -65,7 +66,7 @@ class SettingsModel extends BaseModel {
           subTree: 1,
           icon: Icons.password,
           trailing: const Icon(Icons.arrow_forward_ios),
-          onTap: () => Navigator.of(_context).pushNamed('/resetPassword')),
+          onTap: () => Navigator.of(_context).pushNamed(RouterGenerator.resetPasswordView)),
       ListTileModel(title: translation(_context).settingsPreferencesLabel),
       ListTileModel(
           title: translation(_context).settingsLanguage,

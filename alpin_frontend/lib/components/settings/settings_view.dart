@@ -1,4 +1,4 @@
-
+import 'package:alpin_frontend/components/settings/edit_profile_image/edit_profile_image_view.dart';
 import 'package:alpin_frontend/components/settings/settings_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/widgets/form_widget.dart';
@@ -50,14 +50,22 @@ class SettingsView extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 10),
                           child: MaterialButton(
-                              minWidth: 150,
-                              color: Theme.of(context).primaryColor,
-                              textColor: Theme.of(context).secondaryHeaderColor,
-                              onPressed: () => print('object'),
-                              child: Text(
-                                  translation(context).changeProfileImage)),
+                            minWidth: 150,
+                            color: Theme.of(context).primaryColor,
+                            textColor: Theme.of(context).secondaryHeaderColor,
+                            child:
+                                Text(translation(context).changeProfileImage),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) { //review: not finished yet
+                                  return EditProfileImageView();
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ])),
                   FormWidgetView(inputForm: model.generateFormView())

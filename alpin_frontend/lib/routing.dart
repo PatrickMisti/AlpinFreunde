@@ -8,6 +8,13 @@ import 'package:flutter/material.dart';
 /// The router [args] is like the params in angular
 /// The [name] is the route which component call next
 class RouterGenerator {
+  static String get loginView => '/login';
+  static String get resetPasswordView => '/resetPassword';
+  static String get signInView => '/signin';
+  static String get overviewView => '/overview';
+  static String get settingsView => '/settings';
+
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 
