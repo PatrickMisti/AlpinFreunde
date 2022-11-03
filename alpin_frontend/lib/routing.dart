@@ -3,6 +3,7 @@ import 'package:alpin_frontend/components/login/reset/reset_view.dart';
 import 'package:alpin_frontend/components/login/signin/signIn_view.dart';
 import 'package:alpin_frontend/components/overview/overview_view.dart';
 import 'package:alpin_frontend/components/settings/settings_view.dart';
+import 'package:alpin_frontend/components/suggestion/suggestion_view.dart';
 import 'package:flutter/material.dart';
 
 /// The router [args] is like the params in angular
@@ -13,22 +14,25 @@ class RouterGenerator {
   static String get signInView => '/signin';
   static String get overviewView => '/overview';
   static String get settingsView => '/settings';
+  static String get suggestionView => '/suggestion';
 
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 
     switch(settings.name) {
-      case "/login":
+      case '/login':
         return MaterialPageRoute(builder: (context) => LoginView());
-      case "/resetPassword":
+      case '/resetPassword':
         return MaterialPageRoute(builder: (context) => const ResetPasswordView());
-      case "/signin":
+      case '/signin':
         return MaterialPageRoute(builder: (context) => SignInView());
-      case "/overview":
+      case '/overview':
         return MaterialPageRoute(builder: (context) =>  const OverviewView());
-      case "/settings":
+      case '/settings':
         return MaterialPageRoute(builder: (context) => const SettingsView());
+      case '/suggestion':
+        return MaterialPageRoute(builder: (context) => const SuggestionView());
       default:
         return _errorRoute();
     }

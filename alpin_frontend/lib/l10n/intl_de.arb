@@ -48,5 +48,13 @@
     "settingsProfileEdit": "Profil ändern",
     "settingsPreferencesLabel": "Priorität",
     "settingsLanguage": "Sprache",
-    "settingsThemeMode": "Dark Mode"
+    "settingsThemeMode": "Dark Mode",
+    "tourSuggestion": "Tourenvorschläge",
+    "addNewTourSuggestion": "Neuer Tourenvorschlag hinzufügen",
+    "addLink": "Add link",
+    "addTitle": "Add title",
+    "addDescription": "Add description",
+    "link": "Link",
+    "text": "Beschreibung",
+    "textTitle": "Titel"
 }

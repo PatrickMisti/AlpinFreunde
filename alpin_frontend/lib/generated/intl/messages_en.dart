@@ -26,6 +26,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addDescription":
+            MessageLookupByLibrary.simpleMessage("Add description"),
+        "addLink": MessageLookupByLibrary.simpleMessage("Add link"),
+        "addNewTourSuggestion":
+            MessageLookupByLibrary.simpleMessage("Add new tour suggestion"),
+        "addTitle": MessageLookupByLibrary.simpleMessage("Add title"),
         "alreadyExists": m0,
         "changeProfileImage":
             MessageLookupByLibrary.simpleMessage("Edit Image"),
@@ -40,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "incorrectPassword":
             MessageLookupByLibrary.simpleMessage("Password is incorrect"),
         "lastName": MessageLookupByLibrary.simpleMessage("Lastname"),
+        "link": MessageLookupByLibrary.simpleMessage("link"),
         "loginLetsStart": MessageLookupByLibrary.simpleMessage("Let`s Start!"),
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
@@ -84,9 +91,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create Your Account"),
         "signUpIfNoAccount": MessageLookupByLibrary.simpleMessage(
             "Oh no! I don´t have any account"),
+        "text": MessageLookupByLibrary.simpleMessage("text"),
+        "textTitle": MessageLookupByLibrary.simpleMessage("title"),
         "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),
         "toShortPassword":
             MessageLookupByLibrary.simpleMessage("Password is to short"),
+        "tourSuggestion":
+            MessageLookupByLibrary.simpleMessage("Tour suggestions"),
         "username": MessageLookupByLibrary.simpleMessage("Name")
       };
 }

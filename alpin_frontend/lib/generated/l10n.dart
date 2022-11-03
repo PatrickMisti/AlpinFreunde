@@ -449,6 +449,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Tour suggestions`
+  String get tourSuggestion {
+    return Intl.message(
+      'Tour suggestions',
+      name: 'tourSuggestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new tour suggestion`
+  String get addNewTourSuggestion {
+    return Intl.message(
+      'Add new tour suggestion',
+      name: 'addNewTourSuggestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add link`
+  String get addLink {
+    return Intl.message(
+      'Add link',
+      name: 'addLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add title`
+  String get addTitle {
+    return Intl.message(
+      'Add title',
+      name: 'addTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add description`
+  String get addDescription {
+    return Intl.message(
+      'Add description',
+      name: 'addDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `link`
+  String get link {
+    return Intl.message(
+      'link',
+      name: 'link',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `text`
+  String get text {
+    return Intl.message(
+      'text',
+      name: 'text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `title`
+  String get textTitle {
+    return Intl.message(
+      'title',
+      name: 'textTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

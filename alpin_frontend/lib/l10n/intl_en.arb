@@ -48,5 +48,13 @@
     "settingsProfileEdit": "Edit Profile",
     "settingsPreferencesLabel": "Preferences",
     "settingsLanguage": "Language",
-    "settingsThemeMode": "Dark Mode"
+    "settingsThemeMode": "Dark Mode",
+    "tourSuggestion": "Tour suggestions",
+    "addNewTourSuggestion": "Add new tour suggestion",
+    "addLink": "Add link",
+    "addTitle": "Add title",
+    "addDescription": "Add description",
+    "link": "link",
+    "text": "text",
+    "textTitle": "title"
 }
