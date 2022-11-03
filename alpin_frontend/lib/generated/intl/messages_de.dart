@@ -91,6 +91,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create Your Account"),
         "signUpIfNoAccount": MessageLookupByLibrary.simpleMessage(
             "Oh no! Ich habe noch keinen Account"),
+        "spendBeer": MessageLookupByLibrary.simpleMessage("Bier spenden!"),
+        "spendBeerDesc": MessageLookupByLibrary.simpleMessage(
+            "Du möchtest mir was gutes tun?\nDann lade mich auf ein Bier ein."),
         "text": MessageLookupByLibrary.simpleMessage("Beschreibung"),
         "textTitle": MessageLookupByLibrary.simpleMessage("Titel"),
         "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),

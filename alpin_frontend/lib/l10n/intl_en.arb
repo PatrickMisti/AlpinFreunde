@@ -56,5 +56,7 @@
     "addDescription": "Add description",
     "link": "link",
     "text": "text",
-    "textTitle": "title"
+    "textTitle": "title",
+    "spendBeer": "Spend a beer!",
+    "spendBeerDesc": "Do you want to do something for us?\nThen buy me a beer."
 }

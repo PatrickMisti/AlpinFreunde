@@ -1,4 +1,3 @@
-
 import 'package:alpin_frontend/components/suggestion/suggestion_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/widgets/suggestion_widget.dart';
@@ -30,8 +29,12 @@ class SuggestionView extends StatelessWidget {
             body: Visibility(
               visible: model.isLoading,
               child: ListView.builder(
-                itemBuilder: (context, index) =>
-                    SuggestionWidget(suggestion: model.list[index]),
+                itemBuilder: (context, index) => SuggestionWidget(
+                  suggestion: model.list[index],
+                  isAdmin: model.isAdmin,
+                  deleteById: model.deleteSuggestionById,
+                  editSuggestion: model.editSuggestion,
+                ),
                 itemCount: model.list.length,
               ),
               replacement: const Center(child: CircularProgressIndicator()),

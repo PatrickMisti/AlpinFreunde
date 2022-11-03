@@ -44,6 +44,9 @@ class ThemeAlpin {
       ),
       checkboxTheme:
           CheckboxThemeData(fillColor: MaterialStateProperty.all(primary)),
+      dialogTheme: DialogTheme(
+
+      )
     );
   }
 

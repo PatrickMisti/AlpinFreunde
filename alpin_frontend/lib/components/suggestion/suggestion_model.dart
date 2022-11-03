@@ -1,6 +1,4 @@
 
-import 'dart:developer';
-
 import 'package:alpin_frontend/components/base_model.dart';
 import 'package:alpin_frontend/components/suggestion/add_suggestion/add_suggestion_view.dart';
 import 'package:alpin_frontend/model/trip_suggestion.dart';
@@ -14,6 +12,7 @@ class SuggestionModel extends BaseModel {
   final BuildContext _context;
   late List<TripSuggestion> list;
   bool isLoading = false;
+  bool isAdmin = false; // review get this permission from server
 
   SuggestionModel(this._context) {
     list = [];
@@ -33,5 +32,13 @@ class SuggestionModel extends BaseModel {
   showDialogSuggestion() async {
     final test = await showDialog(context: _context, builder: (context) => const AddSuggestionView());
     // review: add to TripSuggestion and save to backend
+  }
+
+  editSuggestion(TripSuggestion trip) {
+
+  }
+
+  deleteSuggestionById(int id){
+
   }
 }

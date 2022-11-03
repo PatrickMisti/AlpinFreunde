@@ -529,6 +529,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Spend a beer!`
+  String get spendBeer {
+    return Intl.message(
+      'Spend a beer!',
+      name: 'spendBeer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to do something for us?\nThen buy me a beer.`
+  String get spendBeerDesc {
+    return Intl.message(
+      'Do you want to do something for us?\nThen buy me a beer.',
+      name: 'spendBeerDesc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
