@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(name) => "The ${name} is invalid";
 
+  static String m2(name) => "${name} is to short";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addDescription":
@@ -97,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "text": MessageLookupByLibrary.simpleMessage("text"),
         "textTitle": MessageLookupByLibrary.simpleMessage("title"),
         "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),
+        "toShort": m2,
         "toShortPassword":
             MessageLookupByLibrary.simpleMessage("Password is to short"),
         "tourSuggestion":

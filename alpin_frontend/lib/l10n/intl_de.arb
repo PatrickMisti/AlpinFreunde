@@ -56,7 +56,14 @@
     "addDescription": "Add description",
     "link": "Link",
     "text": "Beschreibung",
+    "toShort": "{name} is to short",
+    "@toShort": {
+        "placeholders": {
+            "name":{}
+        }
+    },
     "textTitle": "Titel",
     "spendBeer": "Bier spenden!",
     "spendBeerDesc": "Du möchtest mir was gutes tun?\nDann lade mich auf ein Bier ein."
+
 }

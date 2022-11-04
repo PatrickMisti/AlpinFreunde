@@ -520,6 +520,16 @@ class S {
     );
   }
 
+  /// `{name} is to short`
+  String toShort(Object name) {
+    return Intl.message(
+      '$name is to short',
+      name: 'toShort',
+      desc: '',
+      args: [name],
+    );
+  }
+
   /// `title`
   String get textTitle {
     return Intl.message(

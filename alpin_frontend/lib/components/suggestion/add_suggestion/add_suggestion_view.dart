@@ -11,21 +11,18 @@ import 'package:stacked/stacked.dart';
 class AddSuggestionView extends StatelessWidget {
   const AddSuggestionView({Key? key}) : super(key: key);
 
-  FittedBox _getPicker(ReactiveDatePickerDelegate picker, String date) =>
-      FittedBox(
-        child: OutlinedButton(
-          style: OutlinedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30))),
-          onPressed: picker.showPicker,
-          child: Row(
-            children: [
-              Text(date),
-              IconButton(
-                  onPressed: picker.showPicker,
-                  icon: const Icon(Icons.calendar_month))
-            ],
-          ),
+  _getPicker(ReactiveDatePickerDelegate picker, String date) => OutlinedButton(
+        style: OutlinedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30))),
+        onPressed: picker.showPicker,
+        child: Row(
+          children: [
+            Text(date),
+            IconButton(
+                onPressed: picker.showPicker,
+                icon: const Icon(Icons.calendar_month))
+          ],
         ),
       );
 
@@ -40,7 +37,8 @@ class AddSuggestionView extends StatelessWidget {
               formGroup: model.settings,
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: Column(
+                child: ListView(
+                  shrinkWrap: true,
                   children: [
                     Text(
                       translation(context).addNewTourSuggestion,
@@ -64,7 +62,7 @@ class AddSuggestionView extends StatelessWidget {
                       child: Row(
                         children: [
                           Expanded(
-                            flex: 4,
+                            flex: 5,
                             child: ReactiveTextField(
                                 formControlName: 'link',
                                 decoration: InputDecoration(
@@ -76,30 +74,36 @@ class AddSuggestionView extends StatelessWidget {
                                 }),
                           ),
                           const Spacer(),
-                          ReactiveDatePicker(
-                            formControlName: 'date',
-                            builder: (context, picker, child) {
-                              final date =
-                                  DateFormat.Md('de').format(picker.value!);
-                              return _getPicker(picker, date);
-                            },
-                            firstDate: model.firstDate,
-                            lastDate: DateTime.now(),
+                          FittedBox(
+                            child: ReactiveDatePicker(
+                              formControlName: 'date',
+                              builder: (context, picker, child) {
+                                final date =
+                                    DateFormat.Md('de').format(picker.value!);
+                                return _getPicker(picker, date);
+                              },
+                              firstDate: model.firstDate,
+                              lastDate: DateTime.now(),
+                            ),
                           )
                         ],
                       ),
                     ),
-                    Expanded(
-                        child: ReactiveTextField(
-                            formControlName: 'text',
-                            minLines: 1,
-                            maxLines: 12,
-                            decoration: InputDecoration(
-                                hintText: translation(context).addDescription),
-                            validationMessages: {
-                          'required': (error) => translation(context)
-                              .resetPassInvalid(translation(context).text),
-                        })),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: ReactiveTextField(
+                          formControlName: 'text',
+                          minLines: 1,
+                          maxLines: 12,
+                          decoration: InputDecoration(
+                              hintText: translation(context).addDescription),
+                          validationMessages: {
+                            'required': (error) => translation(context)
+                                .resetPassInvalid(translation(context).text),
+                            'minLength': (error) => translation(context)
+                                .toShort(translation(context).text)
+                          }),
+                    ),
                     SizedBox(
                       width: size.width,
                       child: OutlinedButton(

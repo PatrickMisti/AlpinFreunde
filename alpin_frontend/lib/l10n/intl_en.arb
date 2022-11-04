@@ -56,6 +56,12 @@
     "addDescription": "Add description",
     "link": "link",
     "text": "text",
+    "toShort": "{name} is to short",
+    "@toShort": {
+        "placeholders": {
+            "name":{}
+        }
+    },
     "textTitle": "title",
     "spendBeer": "Spend a beer!",
     "spendBeerDesc": "Do you want to do something for us?\nThen buy me a beer."
