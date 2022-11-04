@@ -1,4 +1,7 @@
 import 'package:alpin_frontend/components/spendBeer/spend_beer_model.dart';
+import 'package:alpin_frontend/config.dart';
+import 'package:alpin_frontend/model/widget/drawer_widget.dart';
+import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -15,10 +18,10 @@ class SpendBeerView extends StatelessWidget {
         viewModelBuilder: () => SpendBeerModel(context),
         builder: (context, model, child) {
           return Scaffold(
+            drawer: DrawerWidget(
+                content: Config.drawerConfig(context),
+                actualRoute: RouterGenerator.spendBeerView),
             appBar: AppBar(
-              leading: IconButton(
-                  onPressed: () => print('object'),
-                  icon: const Icon(Icons.menu)),
               title: Text(translation(context).spendBeer),
             ),
             body: Column(
@@ -40,7 +43,8 @@ class SpendBeerView extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: ReactiveSlider( //review when animation of beer onChangedEnd to fill the bottle
+                  child: ReactiveSlider(
+                    //review when animation of beer onChangedEnd to fill the bottle
                     formControl: model.spender,
                     min: model.minSlider,
                     max: model.maxSlider,
@@ -50,31 +54,33 @@ class SpendBeerView extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.zero,
+                        padding: EdgeInsets.zero,
                         backgroundColor: Colors.amberAccent),
                     onPressed: null,
                     child: RichText(
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: '${model.spender.value.toString()} ${translation(context).beer}\t\t\t\t',
-                            style: const TextStyle(fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(39, 144, 195, 1))
-                          ),
+                              text:
+                                  '${model.spender.value.toString()} ${translation(context).beer}\t\t\t\t',
+                              style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromRGBO(39, 144, 195, 1))),
                           const TextSpan(
                               text: 'Pay',
                               style: TextStyle(
-                                fontSize: 18,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(39, 52, 106, 1))),
                           const TextSpan(
                               text: 'Pal',
                               style: TextStyle(
-                                fontSize: 17,
+                                  fontSize: 17,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromRGBO(39, 144, 195, 1)))
                         ],

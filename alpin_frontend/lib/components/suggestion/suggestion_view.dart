@@ -1,4 +1,7 @@
 import 'package:alpin_frontend/components/suggestion/suggestion_model.dart';
+import 'package:alpin_frontend/config.dart';
+import 'package:alpin_frontend/model/widget/drawer_widget.dart';
+import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/widgets/suggestion_widget.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +20,11 @@ class SuggestionView extends StatelessWidget {
         viewModelBuilder: () => SuggestionModel(context),
         builder: (context, model, child) {
           return Scaffold(
+            drawer: DrawerWidget(
+                content: Config.drawerConfig(context),
+                actualRoute: RouterGenerator.suggestionView),
             appBar: AppBar(
               title: Text(translation(context).tourSuggestion),
-              leading: const Icon(Icons.menu),
               actions: [
                 IconButton(
                     onPressed: () => model.showDialogSuggestion(),

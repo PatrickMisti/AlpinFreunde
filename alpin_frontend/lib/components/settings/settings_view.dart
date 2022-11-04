@@ -1,5 +1,8 @@
 import 'package:alpin_frontend/components/settings/edit_profile_image/edit_profile_image_view.dart';
 import 'package:alpin_frontend/components/settings/settings_model.dart';
+import 'package:alpin_frontend/config.dart';
+import 'package:alpin_frontend/model/widget/drawer_widget.dart';
+import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/widgets/form_widget.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +20,9 @@ class SettingsView extends StatelessWidget {
         builder: (context, model, child) {
           Size size = MediaQuery.of(context).size;
           return Scaffold(
+            drawer: DrawerWidget(
+                content: Config.drawerConfig(context),
+                actualRoute: RouterGenerator.settingsView),
             // review add navigation button
             body: NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -61,7 +67,8 @@ class SettingsView extends StatelessWidget {
                             onPressed: () {
                               showDialog(
                                 context: context,
-                                builder: (context) { //review: not finished yet
+                                builder: (context) {
+                                  //review: not finished yet
                                   return EditProfileImageView();
                                 },
                               );

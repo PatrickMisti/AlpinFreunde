@@ -8,6 +8,7 @@
     "username": "Name",
     "password": "Passwort",
     "email": "Email",
+    "appointments": "Upcoming appointment",
     "incorrectEmail": "Email is incorrect",
     "incorrectPassword": "Password is incorrect",
     "toShortPassword": "Password is to short",

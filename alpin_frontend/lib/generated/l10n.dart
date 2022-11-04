@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Upcoming appointment`
+  String get appointments {
+    return Intl.message(
+      'Upcoming appointment',
+      name: 'appointments',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email is incorrect`
   String get incorrectEmail {
     return Intl.message(

@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Neuer Tourenvorschlag hinzufügen"),
         "addTitle": MessageLookupByLibrary.simpleMessage("Add title"),
         "alreadyExists": m0,
+        "appointments":
+            MessageLookupByLibrary.simpleMessage("Aktuelle Termine"),
         "beer": MessageLookupByLibrary.simpleMessage("Bier"),
         "changeProfileImage":
             MessageLookupByLibrary.simpleMessage("Profilbild ändern"),

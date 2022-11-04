@@ -1,0 +1,25 @@
+import 'package:alpin_frontend/routing.dart';
+import 'package:alpin_frontend/services/language-provider/translation-service.dart';
+import 'package:flutter/cupertino.dart';
+
+class Config {
+  static List<Map<String, String>> drawerConfig(BuildContext context) => [
+        {
+          'title': translation(context).appointments,
+          'route': RouterGenerator.overviewView
+        },
+        {
+          'title': translation(context).tourSuggestion,
+          'route': RouterGenerator.suggestionView
+        },
+        {
+          'title': translation(context).spendBeer,
+          'route': RouterGenerator.spendBeerView
+        },
+        {
+          'title': translation(context).settings,
+          'route': RouterGenerator.settingsView
+        },
+        {'title': 'Login', 'route': RouterGenerator.loginView},
+      ];
+}
