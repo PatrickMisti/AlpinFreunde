@@ -6,6 +6,8 @@ import 'package:alpin_frontend/components/settings/settings_view.dart';
 import 'package:alpin_frontend/components/suggestion/suggestion_view.dart';
 import 'package:flutter/material.dart';
 
+import 'components/spendBeer/spend_beer_view.dart';
+
 /// The router [args] is like the params in angular
 /// The [name] is the route which component call next
 class RouterGenerator {
@@ -15,6 +17,7 @@ class RouterGenerator {
   static String get overviewView => '/overview';
   static String get settingsView => '/settings';
   static String get suggestionView => '/suggestion';
+  static String get spendBeerView => '/spendBeer';
 
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -33,6 +36,8 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (context) => const SettingsView());
       case '/suggestion':
         return MaterialPageRoute(builder: (context) => const SuggestionView());
+      case '/spendBeer':
+        return MaterialPageRoute(builder: (context) => const SpendBeerView());
       default:
         return _errorRoute();
     }

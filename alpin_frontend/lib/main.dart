@@ -49,7 +49,7 @@ class Alpin extends StatelessWidget {
         darkTheme: ThemeAlpin.dark(),
         themeMode: ThemeMode.light,
         onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: RouterGenerator.suggestionView,
+        initialRoute: RouterGenerator.spendBeerView,
       );
     }
     );

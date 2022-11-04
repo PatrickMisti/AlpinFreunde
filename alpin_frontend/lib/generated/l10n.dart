@@ -550,6 +550,16 @@ class S {
     );
   }
 
+  /// `Beer`
+  String get beer {
+    return Intl.message(
+      'Beer',
+      name: 'beer',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Do you want to do something for us?\nThen buy me a beer.`
   String get spendBeerDesc {
     return Intl.message(

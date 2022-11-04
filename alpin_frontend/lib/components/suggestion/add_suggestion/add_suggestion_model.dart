@@ -20,7 +20,7 @@ class AddSuggestionModel extends BaseModel{
 
     firstDate = DateTime(DateTime.now().year - 1);
 
-    settings.valueChanges.listen((event) {
+    sink = settings.valueChanges.listen((event) {
       isSave = settings.valid && settings.dirty;
       setState();
     });

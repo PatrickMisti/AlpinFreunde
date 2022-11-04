@@ -17,6 +17,7 @@ class SettingsView extends StatelessWidget {
         builder: (context, model, child) {
           Size size = MediaQuery.of(context).size;
           return Scaffold(
+            // review add navigation button
             body: NestedScrollView(
               headerSliverBuilder: (context, innerBoxIsScrolled) {
                 return [
