@@ -119,7 +119,7 @@ class SuggestionWidget extends StatelessWidget {
     String date = DateFormat.yMd('de').format(suggestion.time).toString();
     return ViewModelBuilder<SuggestionWidgetModel>.reactive(
       viewModelBuilder: () =>
-          SuggestionWidgetModel(isAdmin, suggestion, editSuggestion),
+          SuggestionWidgetModel(isAdmin, suggestion, editSuggestion, context),
       builder: (context, model, child) {
         return Card(
           elevation: 10,
@@ -146,7 +146,7 @@ class SuggestionWidgetModel extends BaseModel {
   late FormGroup setting;
   final Function editSuggestion;
 
-  SuggestionWidgetModel(this.isAdmin, this._trip, this.editSuggestion) {
+  SuggestionWidgetModel(this.isAdmin, this._trip, this.editSuggestion, BuildContext context) : super(context) {
     setting = FormGroup({
       'title': FormControl<String>(
           value: _trip.title, validators: [Validators.required]),

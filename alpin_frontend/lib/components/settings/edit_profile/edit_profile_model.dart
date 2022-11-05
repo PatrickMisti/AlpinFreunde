@@ -6,9 +6,8 @@ import 'package:reactive_forms/reactive_forms.dart';
 class EditProfileModel extends BaseModel {
   late FormGroup settingsForm;
   bool loading = false;
-  final BuildContext _context;
 
-  EditProfileModel(User? user, this._context) {
+  EditProfileModel(User? user, BuildContext context) : super(context) {
     settingsForm = FormGroup({
       'firstName': FormControl<String>(validators: [Validators.required]),
       'lastName': FormControl<String>(validators: [Validators.required]),

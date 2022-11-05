@@ -37,7 +37,7 @@ class Alpin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeWidget>.reactive(
-        viewModelBuilder: () => HomeWidget(),
+        viewModelBuilder: () => HomeWidget(context),
         builder: (context, model, child) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -49,7 +49,7 @@ class Alpin extends StatelessWidget {
         darkTheme: ThemeAlpin.dark(),
         themeMode: ThemeMode.light,
         onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: RouterGenerator.spendBeerView,
+        initialRoute: RouterGenerator.overviewView,
       );
     }
     );
@@ -63,7 +63,7 @@ class HomeWidget extends BaseModel {
   late TranslationService _translationService;
   late Locale locale;
 
-  HomeWidget(){
+  HomeWidget(BuildContext context) : super(context) {
 
     locale = !L10n.all.contains(Locale(Platform.localeName))
         ? const Locale('en')

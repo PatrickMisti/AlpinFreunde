@@ -1,6 +1,6 @@
 import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Config {
   static List<Map<String, String>> drawerConfig(BuildContext context) => [
@@ -22,4 +22,12 @@ class Config {
         },
         {'title': 'Login', 'route': RouterGenerator.loginView},
       ];
+
+  static List<MapEntry<IconData, String>> get bottomNaviConfig => [
+    MapEntry(Icons.home, RouterGenerator.overviewView),
+    MapEntry(Icons.tour, RouterGenerator.suggestionView),
+    MapEntry(Icons.add, ''),
+    MapEntry(Icons.add_card, RouterGenerator.spendBeerView),
+    MapEntry(Icons.settings, RouterGenerator.settingsView),
+  ];
 }

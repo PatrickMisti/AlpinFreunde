@@ -13,11 +13,9 @@ class ResetPasswordModel extends BaseModel {
   late bool isFacCodeCorrect;
   // services
   late LoginService _loginService;
-  // context
-  final BuildContext _context;
 
 
-  ResetPasswordModel(this._context) : super() {
+  ResetPasswordModel(BuildContext context) : super(context) {
     _loginService = _getIt.get<LoginService>();
     steps = 0;
     isFacCodeCorrect = false;
@@ -47,7 +45,7 @@ class ResetPasswordModel extends BaseModel {
         if (changePasswordSettings.valid) {
           String newPass = changePasswordSettings.control('new').value;
           var isSaved = await _loginService.sendNewPassword(newPass);
-          return Navigator.of(_context).pop();
+          return Navigator.of(context).pop();
         }
     }
 

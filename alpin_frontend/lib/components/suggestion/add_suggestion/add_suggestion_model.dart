@@ -4,13 +4,12 @@ import 'package:flutter/widgets.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class AddSuggestionModel extends BaseModel{
-  final BuildContext _context;
   late FormGroup settings;
 
   late DateTime firstDate;
   bool isSave = false;
 
-  AddSuggestionModel(this._context){
+  AddSuggestionModel(BuildContext context) : super(context){
     settings = FormGroup({
       'title': FormControl<String>(validators: [Validators.required]),
       'link': FormControl<String>(validators: [Validators.required]),
@@ -27,6 +26,6 @@ class AddSuggestionModel extends BaseModel{
   }
 
   save() {
-    Navigator.of(_context).pop(settings.rawValue);
+    Navigator.of(context).pop(settings.rawValue);
   }
 }

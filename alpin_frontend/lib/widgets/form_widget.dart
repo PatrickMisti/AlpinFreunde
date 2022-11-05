@@ -11,7 +11,7 @@ class FormWidgetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<FormWidgetModel>.nonReactive(
-      viewModelBuilder: () => FormWidgetModel(),
+      viewModelBuilder: () => FormWidgetModel(context),
       builder: (context, model, child) {
         return ListView.separated(
           padding: const EdgeInsets.only(top: 5),
@@ -46,5 +46,5 @@ class FormWidgetView extends StatelessWidget {
 }
 
 class FormWidgetModel extends BaseModel {
-  FormWidgetModel() {}
+  FormWidgetModel(BuildContext context) : super(context) {}
 }

@@ -8,9 +8,8 @@ import 'package:reactive_forms/reactive_forms.dart';
 class SignInModel extends BaseModel {
   late FormGroup settingsForm;
   bool isRight = true;
-  final BuildContext _context;
 
-  SignInModel(this._context) : super() {
+  SignInModel(BuildContext context) : super(context) {
     settingsForm = FormGroup({
       'userName': FormControl<String>(validators: [Validators.required]),
       'firstName': FormControl<String>(validators: [Validators.required]),
