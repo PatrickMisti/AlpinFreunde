@@ -25,6 +25,7 @@ class SpendBeerView extends StatelessWidget {
               title: Text(translation(context).spendBeer),
             ),
             body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   alignment: Alignment.center,
@@ -89,11 +90,6 @@ class SpendBeerView extends StatelessWidget {
                   ),
                 )
               ],
-            ),
-            bottomNavigationBar: BottomNavigationWidget(
-              index: model.naviIndex,
-              content: Config.bottomNaviConfig,
-              onTapFunc: model.changeIndexNavi,
             ),
           );
         },

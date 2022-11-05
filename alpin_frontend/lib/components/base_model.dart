@@ -22,7 +22,7 @@ class BaseModel extends BaseViewModel with DisposableState {
     if (index == naviIndex) return;
 
     naviIndex = index;
-    Navigator.of(context).pushNamed(Config.bottomNaviConfig[index].value);
+    // Navigator.of(context).pushNamed(Config.bottomNaviConfig[index].value);
     setState();
   }
 

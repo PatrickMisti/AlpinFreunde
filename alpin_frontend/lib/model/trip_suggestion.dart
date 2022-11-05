@@ -2,6 +2,7 @@
 import 'package:alpin_frontend/model/user.dart';
 
 class TripSuggestion {
+  final int id;
   final String websiteLink;
   final String title;
   final String description;
@@ -9,5 +10,5 @@ class TripSuggestion {
   final DateTime time;
   final User user;
 
-  TripSuggestion(this.websiteLink, this.title, this.description, this.publicShown, this.time, this.user);
+  TripSuggestion(this.id, this.websiteLink, this.title, this.description, this.publicShown, this.time, this.user);
 }

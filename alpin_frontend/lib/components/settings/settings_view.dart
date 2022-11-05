@@ -80,11 +80,6 @@ class SettingsView extends StatelessWidget {
                 ],
               ),
             ),
-            bottomNavigationBar: BottomNavigationWidget(
-              index: model.naviIndex,
-              content: Config.bottomNaviConfig,
-              onTapFunc: model.changeIndexNavi,
-            ),
           );
         },
       );

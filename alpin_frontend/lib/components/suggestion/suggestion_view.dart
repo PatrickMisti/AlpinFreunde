@@ -44,11 +44,6 @@ class SuggestionView extends StatelessWidget {
               ),
               replacement: const Center(child: CircularProgressIndicator()),
             ),
-            bottomNavigationBar: BottomNavigationWidget(
-              index: model.naviIndex,
-              content: Config.bottomNaviConfig,
-              onTapFunc: model.changeIndexNavi,
-            ),
           );
         },
       );
