@@ -64,15 +64,16 @@ class HomeWidget extends BaseModel {
   late Locale locale;
 
   HomeWidget(BuildContext context) : super(context) {
-
+    _translationService = getIt.get<TranslationService>();
     locale = !L10n.all.contains(Locale(Platform.localeName))
         ? const Locale('en')
         : Locale(Platform.localeName);
+    _translationService.setLocale(locale);
     registerService();
   }
 
   void registerService() {
-    _translationService = getIt.get<TranslationService>();
+
     _translationService.language.listen((value) {
       locale = value;
       notifyListeners();

@@ -107,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password is to short"),
         "tourSuggestion":
             MessageLookupByLibrary.simpleMessage("Tour suggestions"),
-        "username": MessageLookupByLibrary.simpleMessage("Name")
+        "username": MessageLookupByLibrary.simpleMessage("Name"),
+        "venue": MessageLookupByLibrary.simpleMessage("Venue")
       };
 }

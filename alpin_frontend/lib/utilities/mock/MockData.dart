@@ -1,3 +1,4 @@
+import 'package:alpin_frontend/model/category.dart';
 import 'package:alpin_frontend/model/trip_appointment.dart';
 import 'package:alpin_frontend/model/trip_suggestion.dart';
 import 'package:alpin_frontend/model/user.dart';
@@ -36,6 +37,8 @@ class MockData {
 
   static TripAppointment get TRIP_APPOINTMENT_1 => TripAppointment(
       1,
+      "Aufe am Berg",
+      CATEGORY_1,
       DateTime.now(),
       "Gmunden",
       06991500845,
@@ -52,7 +55,9 @@ class MockData {
 
   static TripAppointment get TRIP_APPOINTMENT_2 => TripAppointment(
       1,
-      DateTime.now(),
+      "Obe vom Berg",
+      CATEGORY_1,
+      DateTime(2021,3,4),
       "Hinterstoder",
       06991500845,
       'hallo world',
@@ -68,4 +73,6 @@ class MockData {
 
   static List<TripAppointment> get TRIPAPPOINTMENTS =>
       [MockData.TRIP_APPOINTMENT_1, MockData.TRIP_APPOINTMENT_2];
+
+  static Category get CATEGORY_1 => Category('Bergtour');
 }

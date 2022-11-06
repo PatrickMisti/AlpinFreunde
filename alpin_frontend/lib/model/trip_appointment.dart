@@ -1,6 +1,10 @@
 
+import 'category.dart';
+
 class TripAppointment {
   final int id;
+  final String title;
+  final Category category;
   final DateTime date;
   final String location;
   final num phone;
@@ -17,6 +21,8 @@ class TripAppointment {
 
   TripAppointment(
       this.id,
+      this.title,
+      this.category,
       this.date,
       this.location,
       this.phone,
