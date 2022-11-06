@@ -1,6 +1,6 @@
 import 'package:alpin_frontend/components/spendBeer/spend_beer_model.dart';
 import 'package:alpin_frontend/config.dart';
-import 'package:alpin_frontend/model/widget/navigation_widget.dart';
+import 'package:alpin_frontend/widgets/navigation_widget.dart';
 import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,7 @@
 import 'package:alpin_frontend/components/settings/edit_profile_image/edit_profile_image_view.dart';
 import 'package:alpin_frontend/components/settings/settings_model.dart';
 import 'package:alpin_frontend/config.dart';
-import 'package:alpin_frontend/model/widget/navigation_widget.dart';
+import 'package:alpin_frontend/widgets/navigation_widget.dart';
 import 'package:alpin_frontend/routing.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:alpin_frontend/widgets/form_widget.dart';

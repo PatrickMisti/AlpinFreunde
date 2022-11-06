@@ -1,7 +1,7 @@
 
 import 'package:alpin_frontend/components/overview/overview_model.dart';
 import 'package:alpin_frontend/config.dart';
-import 'package:alpin_frontend/model/widget/navigation_widget.dart';
+import 'package:alpin_frontend/widgets/navigation_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
