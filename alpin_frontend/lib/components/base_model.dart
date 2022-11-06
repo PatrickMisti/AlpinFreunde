@@ -1,5 +1,5 @@
 
-import 'package:alpin_frontend/config.dart';
+import 'package:alpin_frontend/model/widget/bottom_navigation_model.dart';
 import 'package:alpin_frontend/services/disposabled.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stacked/stacked.dart';
@@ -8,21 +8,18 @@ import 'package:stacked/stacked.dart';
 ///
 /// [setState] function updated the ui
 /// [dispose] function close all streams
-class BaseModel extends BaseViewModel with DisposableState {
-  int naviIndex = 0;
+class BaseModel extends BaseViewModel with DisposableState, BottomNavigationModel {
   final BuildContext context;
 
-  BaseModel(this.context);
+  BaseModel(this.context): super();
 
   void setState() {
     notifyListeners();
   }
 
+  @override
   void changeIndexNavi(int index) {
-    if (index == naviIndex) return;
-
-    naviIndex = index;
-    // Navigator.of(context).pushNamed(Config.bottomNaviConfig[index].value);
+    super.changeIndexNavi(index);
     setState();
   }
 
