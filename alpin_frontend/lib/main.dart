@@ -12,6 +12,7 @@ import 'package:catcher/catcher.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:stacked/stacked.dart';
 
 /// main methode should initialize all important [services]
@@ -29,6 +30,9 @@ void main() {
   );
 }
 
+final MOBILE = 'mobile';
+final TABLET = 'tablet';
+final DESKTOP = 'desktop';
 /// init application and setup [theme], [local] and [route]
 class Alpin extends StatelessWidget {
 
@@ -49,6 +53,16 @@ class Alpin extends StatelessWidget {
         darkTheme: ThemeAlpin.dark(),
         themeMode: ThemeMode.light,
         onGenerateRoute: RouterGenerator.generateRoute,
+        builder: (context, child) => ResponsiveWrapper.builder(
+          child,
+          minWidth: 380,
+          breakpoints: [
+            ResponsiveBreakpoint.resize(380, name: MOBILE),
+            ResponsiveBreakpoint.autoScale(600, name: MOBILE),
+            ResponsiveBreakpoint.resize(800, name: DESKTOP),
+            const ResponsiveBreakpoint.resize(1920, name: '4k'),
+          ]
+        ),
         initialRoute: RouterGenerator.overviewView,
       );
     }

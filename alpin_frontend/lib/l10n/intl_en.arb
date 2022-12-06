@@ -67,5 +67,7 @@
     "spendBeer": "Spend a beer!",
     "beer": "Beer",
     "spendBeerDesc": "Do you want to do something for us?\nThen buy me a beer.",
-    "venue": "Venue"
+    "venue": "Venue",
+    "news": "Newsfeed",
+    "widgetNotFound": "Widget not found"
 }

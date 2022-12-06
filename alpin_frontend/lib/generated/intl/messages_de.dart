@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
+        "news": MessageLookupByLibrary.simpleMessage("Newsfeed"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordForget": MessageLookupByLibrary.simpleMessage(
             "Hast du dein Passwort vergessen?"),
@@ -108,6 +109,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tourSuggestion":
             MessageLookupByLibrary.simpleMessage("Tourenvorschläge"),
         "username": MessageLookupByLibrary.simpleMessage("Name"),
-        "venue": MessageLookupByLibrary.simpleMessage("Veranstaltungsort")
+        "venue": MessageLookupByLibrary.simpleMessage("Veranstaltungsort"),
+        "widgetNotFound":
+            MessageLookupByLibrary.simpleMessage("Widget nicht gefunden")
       };
 }

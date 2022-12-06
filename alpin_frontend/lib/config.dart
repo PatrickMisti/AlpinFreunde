@@ -1,4 +1,6 @@
+
 import 'package:alpin_frontend/components/home_screen/home_screen_view.dart';
+import 'package:alpin_frontend/components/newsfeed/newsfeed_view.dart';
 import 'package:alpin_frontend/components/settings/settings_view.dart';
 import 'package:alpin_frontend/components/spendBeer/spend_beer_view.dart';
 import 'package:alpin_frontend/components/suggestion/suggestion_view.dart';
@@ -27,19 +29,10 @@ class Config {
         {'title': 'Login', 'route': RouterGenerator.loginView},
       ];
 
-  static List<MapEntry<IconData, String>> get bottomNaviConfig => [
-    MapEntry(Icons.home, ''),
-    MapEntry(Icons.tour, RouterGenerator.suggestionView),
-    MapEntry(Icons.add, ''),
-    MapEntry(Icons.add_card, RouterGenerator.spendBeerView),
-    MapEntry(Icons.settings, RouterGenerator.settingsView),
-  ];
-
-  static List<Widget> get overlayScreens => [
-    HomeScreenView(),
-    SuggestionView(),
-    Container(),
-    SpendBeerView(),
-    SettingsView()
+  static List<MapEntry<IconData,Widget>> get pageConfig => [
+    MapEntry(Icons.home, IndexedStack(children: [HomeScreenView(), NewsfeedView()])),
+    const MapEntry(Icons.tour, SuggestionView()),
+    const MapEntry(Icons.celebration, SpendBeerView()),
+    const MapEntry(Icons.settings, SettingsView())
   ];
 }

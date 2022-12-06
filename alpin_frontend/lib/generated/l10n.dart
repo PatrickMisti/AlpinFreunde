@@ -589,6 +589,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Newsfeed`
+  String get news {
+    return Intl.message(
+      'Newsfeed',
+      name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Widget not found`
+  String get widgetNotFound {
+    return Intl.message(
+      'Widget not found',
+      name: 'widgetNotFound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

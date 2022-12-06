@@ -8,6 +8,8 @@ const Color fourth = Color.fromRGBO(87, 74, 61, 1);
 const Color fifth = Color.fromRGBO(0, 0, 0, 1);
 const Color error = Color.fromRGBO(250, 0, 0, 1);
 
+
+const Color iconCheckedColor = Colors.grey;
 /// basic [colorScheme] for entire application
 final colorSchema = ColorScheme.fromSeed(
     seedColor: background,

@@ -30,16 +30,16 @@ class AppointmentWidget extends StatelessWidget {
                     child: Column(
                   children: [
                     Text(appointment.date.day.toString(),
-                        style: const TextStyle(fontSize: 30)),
+                        style: const TextStyle(fontSize: 18)),
                     Text(
                       item.substring(0, 3),
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 12),
                     ),
                     Text(appointment.date.year.toString()),
                   ],
                 )),
                 Spacer(),
-                FittedBox(child: Text(appointment.title, style: TextStyle(fontSize: 20),)),
+                FittedBox(child: Text(appointment.title, style: TextStyle(fontSize: 14),)),
                 FittedBox(child: Text('${appointment.hightDifference.toString()} m')),
                 FittedBox(child: Text('${translation(context).venue}: ${appointment.location}'),)
               ],
@@ -58,7 +58,7 @@ class AppointmentWidgetModel extends BaseModel {
 
   AppointmentWidgetModel(BuildContext context) : super(context) {
     _service = _getIt.get<TranslationService>();
-
+    locale = _service.locale ?? const Locale('en');
     _service.language.listen((value) {
       locale = value;
       setState();

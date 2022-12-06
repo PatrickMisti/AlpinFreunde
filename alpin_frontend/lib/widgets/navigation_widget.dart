@@ -1,5 +1,6 @@
 
 import 'package:alpin_frontend/assets/Theme_Alpin.dart';
+import 'package:alpin_frontend/utilities/enum_label.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class DrawerWidget extends StatelessWidget {
 class BottomNavigationWidget extends StatelessWidget {
   final Function onTapFunc;
   final int index;
-  final List<MapEntry<IconData,String>> content;
+  final List<MapEntry<IconData,OverviewChildWidgets>> content;
   const BottomNavigationWidget({Key? key, required this.index, required this.content, required this.onTapFunc}) : super(key: key);
 
   @override

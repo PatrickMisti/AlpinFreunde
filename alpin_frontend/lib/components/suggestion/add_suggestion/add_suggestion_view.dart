@@ -1,7 +1,6 @@
 import 'package:alpin_frontend/components/suggestion/add_suggestion/add_suggestion_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:stacked/stacked.dart';
 
@@ -11,6 +10,7 @@ import 'package:stacked/stacked.dart';
 class AddSuggestionView extends StatelessWidget {
   const AddSuggestionView({Key? key}) : super(key: key);
 
+  // review obsoleted picker not be used
   _getPicker(ReactiveDatePickerDelegate picker, String date) => OutlinedButton(
         style: OutlinedButton.styleFrom(
             shape: RoundedRectangleBorder(
@@ -59,35 +59,14 @@ class AddSuggestionView extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 5,
-                            child: ReactiveTextField(
-                                formControlName: 'link',
-                                decoration: InputDecoration(
-                                    hintText: translation(context).addLink),
-                                validationMessages: {
-                                  'required': (error) => translation(context)
-                                      .resetPassInvalid(
-                                          translation(context).link)
-                                }),
-                          ),
-                          const Spacer(),
-                          FittedBox(
-                            child: ReactiveDatePicker(
-                              formControlName: 'date',
-                              builder: (context, picker, child) {
-                                final date =
-                                    DateFormat.Md('de').format(picker.value!);
-                                return _getPicker(picker, date);
-                              },
-                              firstDate: model.firstDate,
-                              lastDate: DateTime.now(),
-                            ),
-                          )
-                        ],
-                      ),
+                      child: ReactiveTextField(
+                          formControlName: 'link',
+                          decoration: InputDecoration(
+                              hintText: translation(context).addLink),
+                          validationMessages: {
+                            'required': (error) => translation(context)
+                                .resetPassInvalid(translation(context).link)
+                          }),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),

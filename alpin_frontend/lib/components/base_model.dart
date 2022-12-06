@@ -11,16 +11,19 @@ import 'package:stacked/stacked.dart';
 class BaseModel extends BaseViewModel with DisposableState, BottomNavigationModel {
   final BuildContext context;
 
-  BaseModel(this.context): super();
+  BaseModel(this.context): super() {
+    afterViewInit();
+  }
 
   void setState() {
     notifyListeners();
   }
 
-  @override
-  void changeIndexNavi(int index) {
-    super.changeIndexNavi(index);
-    setState();
+
+
+  void afterViewInit() {
+    // implement afterViewInit
+    // to call after view WidgetsBinding.instance?.addPostFrameCallback()
   }
 
   @override
