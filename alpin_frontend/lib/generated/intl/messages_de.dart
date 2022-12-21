@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailPush": MessageLookupByLibrary.simpleMessage(
             "Send e-mail push notification"),
         "firstName": MessageLookupByLibrary.simpleMessage("Firstname"),
+        "foundNoContent": MessageLookupByLibrary.simpleMessage(
+            "Es wurde kein Kontent gefunden!!"),
         "incorrectEmail":
             MessageLookupByLibrary.simpleMessage("Email ist falsch"),
         "incorrectPassword":

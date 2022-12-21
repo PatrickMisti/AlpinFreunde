@@ -23,7 +23,7 @@ class SuggestionWidget extends StatelessWidget {
       required this.editSuggestion})
       : super(key: key);
 
-  final titleTextStyle = const TextStyle(color: Colors.white, fontSize: 20);
+  final titleTextStyle = const TextStyle(color: Colors.white, /*fontSize: 20*/);
   final contentTextStyle = const TextStyle(color: Colors.black);
 
   ReactiveForm _contentWidgets(
@@ -51,7 +51,7 @@ class SuggestionWidget extends StatelessWidget {
                           margin: const EdgeInsets.symmetric(horizontal: 3),
                           child: GestureDetector(
                             child: Icon(Icons.delete,
-                                size: titleTextStyle.fontSize,
+                                /*size: titleTextStyle.fontSize,*/
                                 color: titleTextStyle.color),
                           ),
                         ),
@@ -61,14 +61,14 @@ class SuggestionWidget extends StatelessWidget {
                             child: GestureDetector(
                               onTap: model.edit,
                               child: Icon(Icons.edit,
-                                  size: titleTextStyle.fontSize,
+                                  /*size: titleTextStyle.fontSize,*/
                                   color: titleTextStyle.color),
                             )),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 3),
                         child: GestureDetector(
                           child: Icon(Icons.link,
-                              size: titleTextStyle.fontSize,
+                              /*size: titleTextStyle.fontSize,*/
                               color: titleTextStyle.color),
                         ),
                       )
@@ -82,8 +82,8 @@ class SuggestionWidget extends StatelessWidget {
               child: !model.isEdit
                   ? Text(
                       model.setting.control('title').value,
-                      style:
-                          TextStyle(fontSize: (titleTextStyle.fontSize! - 2)),
+                      /*style:
+                          TextStyle(fontSize: (titleTextStyle.fontSize! - 2)),*/
                     )
                   : ReactiveTextField(formControlName: 'title'),
             ),
@@ -106,7 +106,7 @@ class SuggestionWidget extends StatelessWidget {
                 margin: const EdgeInsets.all(2),
                 padding: const EdgeInsets.only(left: 10, right: 10, bottom: 5),
                 width: size.width,
-                child: Text(date, style: const TextStyle(fontSize: 12)))
+                child: Text(date, /*style: const TextStyle(fontSize: 12)*/))
           ],
         ));
   }
@@ -116,7 +116,7 @@ class SuggestionWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     String name =
         [suggestion.user.firstName, suggestion.user.lastName].join(' ');
-    String date = DateFormat.yMd('de').format(suggestion.time).toString();
+    String date = DateFormat.yMd('de').format(DateTime.now()).toString(); // todo if its needed???
     return ViewModelBuilder<SuggestionWidgetModel>.reactive(
       viewModelBuilder: () =>
           SuggestionWidgetModel(isAdmin, suggestion, editSuggestion, context),

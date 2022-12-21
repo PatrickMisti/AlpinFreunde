@@ -2,6 +2,7 @@ import 'package:alpin_frontend/model/category.dart';
 import 'package:alpin_frontend/model/trip_appointment.dart';
 import 'package:alpin_frontend/model/trip_suggestion.dart';
 import 'package:alpin_frontend/model/user.dart';
+import 'package:alpin_frontend/model/youtube_data.dart';
 
 /// mock data's for testing
 class MockData {
@@ -20,7 +21,6 @@ class MockData {
       'Mount everest',
       'Großartige, alpine Rundtour nur für erfahrene Alpinisten auf den "Wächter des Salzkammergutes", den Traunstein, mit Aufstieg am unmarkierten und unversicherten Zierlersteig in leichter Kletterei (bis II+ kurze Stellen) und Abstieg am versicherten Naturfreundesteig (A-B). Orientierungsvermögen ist erforderlich, da es keine Markierungen, sondern nur Pfadspuren oder einzelne Steinmanndl gibt.',
       true,
-      DateTime.now(),
       MOCK_USER);
 
   static TripSuggestion get TRIP_SUGGESTION_2 => TripSuggestion(
@@ -29,7 +29,6 @@ class MockData {
       'Mount Shit',
       'Nix für mich',
       true,
-      DateTime.now(),
       MOCK_USER);
 
   static List<TripSuggestion> get TRIP_SUGGESTIONS =>
@@ -75,4 +74,11 @@ class MockData {
       [MockData.TRIP_APPOINTMENT_1, MockData.TRIP_APPOINTMENT_2];
 
   static Category get CATEGORY_1 => Category('Bergtour');
+
+  static List<YoutubeData> get YOUTUBE_LIST => [
+    YoutubeData(title: "Haderlauskögerl  I  im Schnee versunken",videoId: "cK1-DH2FzGM",description: "Das Haderlauskögerl und der Rotgsol sind dem Sengsengebirge im Norden vorgelagerte, eher stille und wenig besuchte Gipfel ...",publishedTime: DateTime.parse("2022-12-04T00:00:00.000+00:00"),thumbnail: "https://i.ytimg.com/vi/cK1-DH2FzGM/default.jpg"),
+    YoutubeData(title: "Haderlauskögerl  I  im Schnee versunken",videoId: "cK1-DH2FzGM",description: "Das Haderlauskögerl und der Rotgsol sind dem Sengsengebirge im Norden vorgelagerte, eher stille und wenig besuchte Gipfel ...",publishedTime: DateTime.parse("2022-12-04T00:00:00.000+00:00"),thumbnail: "https://i.ytimg.com/vi/cK1-DH2FzGM/default.jpg"),
+    YoutubeData(title: "Haderlauskögerl  I  im Schnee versunken",videoId: "cK1-DH2FzGM",description: "Das Haderlauskögerl und der Rotgsol sind dem Sengsengebirge im Norden vorgelagerte, eher stille und wenig besuchte Gipfel ...",publishedTime: DateTime.parse("2022-12-04T00:00:00.000+00:00"),thumbnail: "https://i.ytimg.com/vi/cK1-DH2FzGM/default.jpg"),
+    YoutubeData(title: "Haderlauskögerl  I  im Schnee versunken",videoId: "cK1-DH2FzGM",description: "Das Haderlauskögerl und der Rotgsol sind dem Sengsengebirge im Norden vorgelagerte, eher stille und wenig besuchte Gipfel ...",publishedTime: DateTime.parse("2022-12-04T00:00:00.000+00:00"),thumbnail: "https://i.ytimg.com/vi/cK1-DH2FzGM/default.jpg")
+  ];
 }

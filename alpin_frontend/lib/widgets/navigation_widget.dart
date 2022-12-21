@@ -44,7 +44,7 @@ class BottomNavigationWidget extends StatelessWidget {
         height: 60,
         onTap: (value) => onTapFunc(value),
         index: index,
-        backgroundColor: ThemeAlpin.light().scaffoldBackgroundColor,
+        // backgroundColor: ThemeAlpin.light().scaffoldBackgroundColor,
         items: [
           for (var item in content)
             Icon(item.key)

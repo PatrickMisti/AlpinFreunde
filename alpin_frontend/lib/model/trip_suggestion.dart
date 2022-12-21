@@ -7,8 +7,8 @@ class TripSuggestion {
   final String title;
   final String description;
   final bool publicShown;
-  final DateTime time;
+  // final DateTime time;
   final User user;
 
-  TripSuggestion(this.id, this.websiteLink, this.title, this.description, this.publicShown, this.time, this.user);
+  TripSuggestion(this.id, this.websiteLink, this.title, this.description, this.publicShown, this.user);
 }

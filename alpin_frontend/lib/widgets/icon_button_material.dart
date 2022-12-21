@@ -12,6 +12,7 @@ class IconButtonMaterial extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = Theme.of(context).primaryColor;
     return Padding(
       padding: EdgeInsets.all(padding),
       child: InkWell(
@@ -20,9 +21,9 @@ class IconButtonMaterial extends StatelessWidget {
             child: Icon(icon),
             foregroundColor: isActive
                 ? Colors.white
-                : ThemeAlpin.light().primaryColor,
+                : primaryColor,
             backgroundColor: isActive
-                ? ThemeAlpin.light().primaryColor
+                ? primaryColor
                 : Colors.transparent),
       ),
     );

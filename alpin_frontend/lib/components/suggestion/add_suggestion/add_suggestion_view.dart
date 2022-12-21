@@ -43,7 +43,7 @@ class AddSuggestionView extends StatelessWidget {
                     Text(
                       translation(context).addNewTourSuggestion,
                       style: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold),
+                          /*fontSize: 22,*/ fontWeight: FontWeight.bold),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),

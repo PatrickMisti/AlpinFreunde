@@ -1,13 +1,15 @@
 
 import 'dart:async';
 
+import 'package:alpin_frontend/services/disposabled.dart';
 import 'package:alpin_frontend/services/service_base.dart';
 import 'package:alpin_frontend/utilities/http_wrapper.dart';
 import 'package:get_it/get_it.dart';
 
 /// loginService controls all get, post and put statements
-class LoginService implements BaseService {
+class LoginService extends BaseService {
   late HttpWrapper _http;
+
   LoginService() {
     _http = HttpWrapper();
   }
@@ -22,12 +24,4 @@ class LoginService implements BaseService {
     //todo http change password and return true if success
     return true;
   }
-
-  @override
-  FutureOr<void> onDispose() {
-    // TODO: implement onDispose
-  }
-
-  @override
-  GetIt get getIt => GetIt.I;
 }

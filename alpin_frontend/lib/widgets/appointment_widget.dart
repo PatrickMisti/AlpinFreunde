@@ -22,7 +22,7 @@ class AppointmentWidget extends StatelessWidget {
         return Card(
           // margin: EdgeInsets.all(5),
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(0),
             child: Column(
               children: [
                 FittedBox(
@@ -30,16 +30,16 @@ class AppointmentWidget extends StatelessWidget {
                     child: Column(
                   children: [
                     Text(appointment.date.day.toString(),
-                        style: const TextStyle(fontSize: 18)),
+                        /*style: const TextStyle(fontSize: 18)*/),
                     Text(
                       item.substring(0, 3),
-                      style: const TextStyle(fontSize: 12),
+                      /*style: const TextStyle(fontSize: 12),*/
                     ),
                     Text(appointment.date.year.toString()),
                   ],
                 )),
                 Spacer(),
-                FittedBox(child: Text(appointment.title, style: TextStyle(fontSize: 14),)),
+                FittedBox(child: Text(appointment.title, /*style: TextStyle(fontSize: 14),*/)),
                 FittedBox(child: Text('${appointment.hightDifference.toString()} m')),
                 FittedBox(child: Text('${translation(context).venue}: ${appointment.location}'),)
               ],

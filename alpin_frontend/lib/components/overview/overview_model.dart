@@ -5,10 +5,12 @@ import 'package:alpin_frontend/components/home_screen/home_screen_view.dart';
 import 'package:alpin_frontend/components/newsfeed/newsfeed_view.dart';
 import 'package:alpin_frontend/config.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
+import 'package:alpin_frontend/services/youtube_service.dart';
 import 'package:alpin_frontend/utilities/exceptions.dart';
 import 'package:catcher/catcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get_it/get_it.dart';
 
 class OverviewModel extends BaseModel  {
   List<MapEntry<IconData, Widget>> screens = Config.pageConfig;
@@ -16,9 +18,11 @@ class OverviewModel extends BaseModel  {
   final curveAnimation = Curves.easeInOutQuart;
   final durationOfAnimation = const Duration(milliseconds: 700);
   bool switchToNews = false;
+  final GetIt getIt = GetIt.I;
 
   OverviewModel(BuildContext _context) : super(_context) {
     controller = PageController(initialPage: naviIndex, keepPage: true);
+    registerServices();
   }
 
   get getCurrentWidget => screens[naviIndex].value is! IndexedStack ? screens[naviIndex].value as BaseWidget : _getViewFromStackByIconSwitch();
@@ -55,5 +59,18 @@ class OverviewModel extends BaseModel  {
   void changeToNews() {
     switchToNews = !switchToNews; // remove this HomeScreenView should handle this
     setState();
+  }
+
+  ///region all services and dispose
+  registerServices() {
+    getIt.registerLazySingleton(() => YoutubeService());
+  }
+
+  @override
+  @mustCallSuper
+  void dispose() {
+    super.dispose();
+    final youtube = getIt.get<YoutubeService>();
+    getIt.unregister(instance: youtube);
   }
 }

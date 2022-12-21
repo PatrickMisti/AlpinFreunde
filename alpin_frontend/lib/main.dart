@@ -19,10 +19,8 @@ import 'package:stacked/stacked.dart';
 /// call application with [runApp]
 /// init errorHandling
 void main() {
-  HttpWrapper.httpUrl = "http://";
-  final getIt = GetIt.instance;
-  getIt.registerLazySingleton(() => TranslationService());
-  getIt.registerLazySingleton(() => LoginService());
+
+  HttpWrapper.httpUrl = "http://192.168.1.75:8000";
   Catcher(
     debugConfig: ErrorHandling.getDebugReport,
     releaseConfig: ErrorHandling.getReleaseReport,
@@ -41,7 +39,10 @@ class Alpin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeWidget>.reactive(
-        viewModelBuilder: () => HomeWidget(context),
+        viewModelBuilder: () {
+          HomeWidget.getEssentialServices();
+          return HomeWidget(context);
+        },
         builder: (context, model, child) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -49,8 +50,8 @@ class Alpin extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         locale: model.locale,
-        theme: ThemeAlpin.light(),
-        darkTheme: ThemeAlpin.dark(),
+        theme: themeLight,
+        darkTheme: themeDark,
         themeMode: ThemeMode.light,
         onGenerateRoute: RouterGenerator.generateRoute,
         builder: (context, child) => ResponsiveWrapper.builder(
@@ -87,17 +88,25 @@ class HomeWidget extends BaseModel {
   }
 
   void registerService() {
-
     _translationService.language.listen((value) {
       locale = value;
       notifyListeners();
     });
   }
 
+  static void getEssentialServices() {
+    final getI = GetIt.instance;
+    getI.registerLazySingleton(() => TranslationService());
+    getI.registerLazySingleton(() => LoginService()); // review dont know
+    getI.registerLazySingleton(() => HttpWrapper());
+  }
+
   @override
   void onDispose() {
-    final loginService = getIt.get<LoginService>();
-    getIt.unregister(instance: loginService);
+    // final loginService = getIt.get<>();
+    getIt.unregister(instance: _translationService);
+    getIt.unregister<LoginService>();
+    getIt.unregister<HttpWrapper>();
     super.onDispose();
   }
 }

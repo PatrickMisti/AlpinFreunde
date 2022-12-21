@@ -27,7 +27,7 @@ class ResetPasswordView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 25, vertical: 15),
                       child: Text(translation(context).resetPasswordFirst,
-                          style: const TextStyle(fontSize: 16),
+                          /*style: const TextStyle(fontSize: 16),*/
                           textAlign: TextAlign.start),
                     ),
                   ),

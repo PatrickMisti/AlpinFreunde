@@ -1,14 +1,18 @@
 
 import 'dart:async';
 
+import 'package:alpin_frontend/services/disposabled.dart';
 import 'package:get_it/get_it.dart';
 
 /// base class for all [services]
 ///
 /// not sure if needed
-abstract class BaseService extends Disposable {
-  abstract final GetIt getIt;
+class BaseService {
+  late GetIt getIt;
 
-  @override
-  FutureOr<void> onDispose();
+  BaseService() {
+    getIt = GetIt.instance;
+  }
+
+
 }

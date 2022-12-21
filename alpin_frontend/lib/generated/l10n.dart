@@ -609,6 +609,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Content not found!!`
+  String get foundNoContent {
+    return Intl.message(
+      'Content not found!!',
+      name: 'foundNoContent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -69,5 +69,6 @@
     "spendBeerDesc": "Du möchtest mir was gutes tun?\nDann lade mich auf ein Bier ein.",
     "venue": "Veranstaltungsort",
     "news": "Newsfeed",
-    "widgetNotFound": "Widget nicht gefunden"
+    "widgetNotFound": "Widget nicht gefunden",
+    "foundNoContent": "Es wurde kein Kontent gefunden!!"
 }

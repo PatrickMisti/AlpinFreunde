@@ -47,7 +47,7 @@ class OverviewView extends StatelessWidget {
               height: 60,
               onTap: model.controller.jumpToPage,
               index: model.naviIndex,
-              backgroundColor: ThemeAlpin.light().scaffoldBackgroundColor,
+              // backgroundColor: ThemeAlpin.light().scaffoldBackgroundColor,
               items: model.screens.map((e) => Icon(e.key)).toList(),
             ),
           );

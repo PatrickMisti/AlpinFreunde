@@ -27,7 +27,7 @@ class SpendBeerView extends StatelessWidget implements BaseWidget{
                 const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 child: Text(
                   translation(context).spendBeerDesc,
-                  style: const TextStyle(fontSize: 14),
+                  /*style: const TextStyle(fontSize: 14),*/
                 ),
               ),
               Container(
@@ -63,19 +63,19 @@ class SpendBeerView extends StatelessWidget implements BaseWidget{
                             text:
                             '${model.spender.value.toString()} ${translation(context).beer}\t\t\t\t',
                             style: const TextStyle(
-                                fontSize: 18,
+                                /*fontSize: 18,*/
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(39, 144, 195, 1))),
                         const TextSpan(
                             text: 'Pay',
                             style: TextStyle(
-                                fontSize: 18,
+                                /*fontSize: 18,*/
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(39, 52, 106, 1))),
                         const TextSpan(
                             text: 'Pal',
                             style: TextStyle(
-                                fontSize: 17,
+                                /*fontSize: 17,*/
                                 fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(39, 144, 195, 1)))
                       ],

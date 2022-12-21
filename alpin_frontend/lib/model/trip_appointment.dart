@@ -1,3 +1,4 @@
+import 'package:alpin_frontend/model/user.dart';
 
 import 'category.dart';
 
@@ -18,6 +19,7 @@ class TripAppointment {
   final double accessiblePlace;
   final bool isAccessiblePlace;
   final bool isTicketNeeded;
+  final List<User>? users;
 
   TripAppointment(
       this.id,
@@ -35,5 +37,6 @@ class TripAppointment {
       this.warningDescription,
       this.accessiblePlace,
       this.isAccessiblePlace,
-      this.isTicketNeeded);
+      this.isTicketNeeded,
+      {this.users});
 }

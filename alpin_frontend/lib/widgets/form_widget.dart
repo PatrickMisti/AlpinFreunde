@@ -33,7 +33,7 @@ class FormWidgetView extends StatelessWidget {
                       if (element.icon != null) Icon(element.icon),
                       Padding(
                           padding: EdgeInsets.only(left: element.subTree * 3),
-                          child: Text(element.title, style: TextStyle(fontSize: 12),))
+                          child: Text(element.title, /*style: TextStyle(fontSize: 12),*/))
                     ],
                   ),
                 ),
