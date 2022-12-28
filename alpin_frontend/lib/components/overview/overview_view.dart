@@ -1,4 +1,4 @@
-import 'package:alpin_frontend/assets/Theme_Alpin.dart';
+
 import 'package:alpin_frontend/components/home_screen/home_screen_view.dart';
 import 'package:alpin_frontend/components/newsfeed/newsfeed_view.dart';
 import 'package:alpin_frontend/components/overview/overview_model.dart';
@@ -16,6 +16,7 @@ class OverviewView extends StatelessWidget {
       ViewModelBuilder<OverviewModel>.reactive(
         viewModelBuilder: () => OverviewModel(context),
         builder: (context, model, child) {
+          final bottomNaviColor = Theme.of(context).bottomNavigationBarTheme;
           return Scaffold(
             appBar: AppBar(
               leading: model.getCurrentWidget is HomeScreenView
@@ -42,12 +43,14 @@ class OverviewView extends StatelessWidget {
               itemBuilder: (context, index) => model.getCurrentWidget as Widget,
             ),
             bottomNavigationBar: CurvedNavigationBar(
+              buttonBackgroundColor: bottomNaviColor.backgroundColor,
+              backgroundColor: bottomNaviColor.unselectedItemColor!,
+              color: bottomNaviColor.backgroundColor!,
               animationCurve: model.curveAnimation,
               animationDuration: model.durationOfAnimation,
               height: 60,
               onTap: model.controller.jumpToPage,
               index: model.naviIndex,
-              // backgroundColor: ThemeAlpin.light().scaffoldBackgroundColor,
               items: model.screens.map((e) => Icon(e.key)).toList(),
             ),
           );

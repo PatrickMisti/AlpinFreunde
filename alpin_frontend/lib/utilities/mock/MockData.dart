@@ -18,6 +18,7 @@ class MockData {
   static TripSuggestion get TRIP_SUGGESTION_1 => TripSuggestion(
       1,
       'http://test.at',
+      DateTime.now(),
       'Mount everest',
       'Großartige, alpine Rundtour nur für erfahrene Alpinisten auf den "Wächter des Salzkammergutes", den Traunstein, mit Aufstieg am unmarkierten und unversicherten Zierlersteig in leichter Kletterei (bis II+ kurze Stellen) und Abstieg am versicherten Naturfreundesteig (A-B). Orientierungsvermögen ist erforderlich, da es keine Markierungen, sondern nur Pfadspuren oder einzelne Steinmanndl gibt.',
       true,
@@ -26,6 +27,7 @@ class MockData {
   static TripSuggestion get TRIP_SUGGESTION_2 => TripSuggestion(
       2,
       'http://test2.at',
+      DateTime.now(),
       'Mount Shit',
       'Nix für mich',
       true,

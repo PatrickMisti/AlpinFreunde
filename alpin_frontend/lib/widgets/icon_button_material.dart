@@ -19,9 +19,9 @@ class IconButtonMaterial extends StatelessWidget {
         onTap: () => onTap(),
         child: CircleAvatar(
             child: Icon(icon),
-            foregroundColor: isActive
+            /*foregroundColor: isActive
                 ? Colors.white
-                : primaryColor,
+                : primaryColor,*/
             backgroundColor: isActive
                 ? primaryColor
                 : Colors.transparent),
