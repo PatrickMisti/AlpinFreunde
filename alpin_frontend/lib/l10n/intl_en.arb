@@ -70,5 +70,7 @@
     "venue": "Venue",
     "news": "Newsfeed",
     "widgetNotFound": "Widget not found",
-    "foundNoContent": "Content not found!!"
+    "foundNoContent": "Content not found!!",
+    "foundNoYoutubeVideo": "Video couldn't found!",
+    "ok": "OK"
 }

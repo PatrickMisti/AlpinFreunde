@@ -14,8 +14,9 @@ class YoutubeService extends BaseService{
 
   Future<List<YoutubeData>?> getVideoFromChannel() async {
     try {
-      List<YoutubeData> list = await _httpWrapper.getAll<List<YoutubeData>,YoutubeData>('/youtube');
-      return list;
+      List<dynamic> list = await _httpWrapper.getAll('/youtube');
+
+      return list.map((dynamic e) => YoutubeData.fromJson(e)).toList();
     } catch(err, stack) {
       Catcher.reportCheckedError(err, stack);
       return null;

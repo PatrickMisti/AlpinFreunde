@@ -619,6 +619,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Video couldn't found!`
+  String get foundNoYoutubeVideo {
+    return Intl.message(
+      'Video couldn\'t found!',
+      name: 'foundNoYoutubeVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -16,11 +16,4 @@ class HomeScreenModel extends BaseModel {
     setState();
   }
 
-  /*@override
-  void afterViewInit() {
-    // TODO: implement afterViewInit only testing
-    *//*WidgetsBinding.instance?.addPostFrameCallback((_) {
-      print('Build Completed: Home');
-    });*//*
-  }*/
 }

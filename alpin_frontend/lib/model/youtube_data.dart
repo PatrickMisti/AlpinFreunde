@@ -1,7 +1,5 @@
 
-import 'package:alpin_frontend/model/BaseEntity.dart';
-
-class YoutubeData implements BaseEntity {
+class YoutubeData {
   final String videoId;
   final String title;
   final String description;
@@ -10,12 +8,11 @@ class YoutubeData implements BaseEntity {
 
   YoutubeData({required this.videoId,required this.title,required this.description,required this.publishedTime,required this.thumbnail});
 
-  @override
-  fromJson(Map<String, dynamic> json) {
+  factory YoutubeData.fromJson(Map<String, dynamic> json) {
     return YoutubeData(
-        videoId: json['videoId'], 
-        title: json['title'], 
-        description: json['description'], 
+        videoId: json['videoId'],
+        title: json['title'],
+        description: json['description'],
         publishedTime: DateTime.parse(json['publishedTime']),
         thumbnail: json['thumbnail']);
   }

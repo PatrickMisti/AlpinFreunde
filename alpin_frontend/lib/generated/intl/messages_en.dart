@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("Firstname"),
         "foundNoContent":
             MessageLookupByLibrary.simpleMessage("Content not found!!"),
+        "foundNoYoutubeVideo":
+            MessageLookupByLibrary.simpleMessage("Video couldn\'t found!"),
         "incorrectEmail":
             MessageLookupByLibrary.simpleMessage("Email is incorrect"),
         "incorrectPassword":
@@ -59,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
         "news": MessageLookupByLibrary.simpleMessage("Newsfeed"),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "password": MessageLookupByLibrary.simpleMessage("Passwort"),
         "passwordForget":
             MessageLookupByLibrary.simpleMessage("Forget your password?"),
