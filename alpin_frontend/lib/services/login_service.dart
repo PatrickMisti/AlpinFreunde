@@ -10,7 +10,7 @@ import 'package:get_it/get_it.dart';
 class LoginService extends BaseService {
   late HttpWrapper _http;
 
-  LoginService() {
+  LoginService() : super() {
     _http = HttpWrapper();
   }
 

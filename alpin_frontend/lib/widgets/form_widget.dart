@@ -23,16 +23,18 @@ class FormWidgetView extends StatelessWidget {
               var element = inputForm[index];
               return ListTile(
                 onTap: element.onTap,
-                tileColor: element.padding != 0
+                /*tileColor: element.padding != 0
                     ? Theme.of(context).secondaryHeaderColor
-                    : null,
+                    : null,*/
                 title: Padding(
-                  padding: EdgeInsets.only(left: element.padding),
+                  // padding: EdgeInsets.only(left: element.padding),
+                  padding: EdgeInsets.only(left: 0),
                   child: Row(
                     children: [
                       if (element.icon != null) Icon(element.icon),
                       Padding(
-                          padding: EdgeInsets.only(left: element.subTree * 3),
+                          // padding: EdgeInsets.only(left: element.subTree * 3),
+                          padding: EdgeInsets.only(left: 3),
                           child: Text(element.title, /*style: TextStyle(fontSize: 12),*/))
                     ],
                   ),

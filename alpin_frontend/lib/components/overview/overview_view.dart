@@ -16,8 +16,11 @@ class OverviewView extends StatelessWidget {
       ViewModelBuilder<OverviewModel>.reactive(
         viewModelBuilder: () => OverviewModel(context),
         builder: (context, model, child) {
-          final bottomNaviColor = Theme.of(context).bottomNavigationBarTheme;
+          final iconButton = Theme.of(context).floatingActionButtonTheme;
+          final backgroundColor = Theme.of(context).bottomSheetTheme;
+          final color = Theme.of(context).primaryColor;
           return Scaffold(
+            /*extendBodyBehindAppBar: true,
             appBar: AppBar(
               leading: model.getCurrentWidget is HomeScreenView
                   || model.getCurrentWidget is NewsfeedView
@@ -34,7 +37,7 @@ class OverviewView extends StatelessWidget {
                             AssetImage('lib/assets/images/default-image.png')),
                   )
               ],
-            ),
+            ),*/
             body: PageView.builder(
               controller: model.controller,
               scrollDirection: Axis.horizontal,
@@ -43,10 +46,10 @@ class OverviewView extends StatelessWidget {
               itemBuilder: (context, index) => model.getCurrentWidget as Widget,
             ),
             bottomNavigationBar: CurvedNavigationBar(
-              buttonBackgroundColor: bottomNaviColor.backgroundColor,
-              backgroundColor: bottomNaviColor.unselectedItemColor!,
-              color: bottomNaviColor.backgroundColor!,
+              buttonBackgroundColor: iconButton.backgroundColor,
+              backgroundColor: backgroundColor.backgroundColor!,
               animationCurve: model.curveAnimation,
+              color: color,
               animationDuration: model.durationOfAnimation,
               height: 60,
               onTap: model.controller.jumpToPage,

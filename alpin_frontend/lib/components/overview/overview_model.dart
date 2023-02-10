@@ -13,7 +13,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 
 class OverviewModel extends BaseModel  {
-  List<MapEntry<IconData, Widget>> screens = Config.pageConfig;
+  List<MapEntry<IconData, BaseWidget>> screens = Config.pageConfig;
   late PageController controller;
   final curveAnimation = Curves.easeInOutQuart;
   final durationOfAnimation = const Duration(milliseconds: 700);
@@ -25,7 +25,7 @@ class OverviewModel extends BaseModel  {
     registerServices();
   }
 
-  get getCurrentWidget => screens[naviIndex].value is! IndexedStack ? screens[naviIndex].value as BaseWidget : _getViewFromStackByIconSwitch();
+  get getCurrentWidget => screens[naviIndex].value;
 
   Widget _getViewFromStackByIconSwitch() {
     var defaultWidget = Center(child: Text(translation(context).widgetNotFound));

@@ -1,65 +1,137 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// basic [colorScheme] for entire application
-const _primaryColor = Color.fromRGBO(255, 77, 42, 1);
-const _secondColor = Color.fromRGBO(255, 132, 31, 1);
-const _accentColor = Color.fromRGBO(62, 109, 156, 1);
-const _secondAccentColor = Color.fromRGBO(0, 18, 83, 1);
-const _error = Color.fromRGBO(250, 0, 0, 1);
+const ColorScheme flexSchemeLight = ColorScheme(
+  brightness: Brightness.light,
+  primary: Color(0xffc78d20),
+  onPrimary: Color(0xffffffff),
+  primaryContainer: Color(0xffdeb059),
+  onPrimaryContainer: Color(0xff120f08),
+  secondary: Color(0xff616247),
+  onSecondary: Color(0xffffffff),
+  secondaryContainer: Color(0xffbcbca8),
+  onSecondaryContainer: Color(0xff10100e),
+  tertiary: Color(0xff8d9440),
+  onTertiary: Color(0xffffffff),
+  tertiaryContainer: Color(0xffbfc39b),
+  onTertiaryContainer: Color(0xff10100d),
+  error: Color(0xffb00020),
+  onError: Color(0xffffffff),
+  errorContainer: Color(0xfffcd8df),
+  onErrorContainer: Color(0xff141213),
+  background: Color(0xfffdfaf7),
+  onBackground: Color(0xff090909),
+  surface: Color(0xfffefdfb),
+  onSurface: Color(0xff040404),
+  surfaceVariant: Color(0xfffdfbf8),
+  onSurfaceVariant: Color(0xff090909),
+  outline: Color(0xff565656),
+  shadow: Color(0xff000000),
+  inverseSurface: Color(0xff131211),
+  onInverseSurface: Color(0xfffafafa),
+  inversePrimary: Color(0xfffff8b9),
+  surfaceTint: Color(0xffc78d20),
+);
 
-///region
-IconThemeData get icons => const IconThemeData(color: Colors.white);
-
-CardTheme get cards => const CardTheme(
-      margin: EdgeInsets.all(10),
-      elevation: 5,
-      // color: Colors.yellow,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+// This theme was made for FlexColorScheme version 6.1.1. Make sure
+// you use same or higher version, but still same major version. If
+// you use a lower version, some properties may not be supported. In
+// that case you can also remove them after copying the theme to your app.
+get themeLight => FlexThemeData.light(
+      scheme: FlexScheme.mango,
+      surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
+      blendLevel: 9,
+      subThemesData: const FlexSubThemesData(
+        blendOnLevel: 10,
+        blendOnColors: false,
+        textButtonRadius: 14.0,
+        elevatedButtonRadius: 14.0,
+        outlinedButtonRadius: 14.0,
+        toggleButtonsRadius: 8.0,
+        toggleButtonsBorderWidth: 1.0,
+        switchSchemeColor: SchemeColor.tertiary,
+        checkboxSchemeColor: SchemeColor.tertiary,
+        radioSchemeColor: SchemeColor.tertiary,
+        sliderBaseSchemeColor: SchemeColor.tertiary,
+        sliderValueTinted: true,
+        sliderTrackHeight: 6,
+        inputDecoratorRadius: 11.0,
+        fabUseShape: true,
+        fabAlwaysCircular: true,
+        fabSchemeColor: SchemeColor.tertiary,
+        chipSchemeColor: SchemeColor.tertiary,
+        chipSelectedSchemeColor: SchemeColor.primary,
+        chipDeleteIconSchemeColor: SchemeColor.error,
+        chipRadius: 5.0,
+        cardRadius: 6.0,
+        dialogBackgroundSchemeColor: SchemeColor.secondary,
+        dialogRadius: 8.0,
+        timePickerDialogRadius: 8.0,
+        snackBarBackgroundSchemeColor: SchemeColor.primaryContainer,
+        appBarBackgroundSchemeColor: SchemeColor.primaryContainer,
+        bottomSheetRadius: 22.0,
+        bottomSheetElevation: 8.0,
+        bottomSheetModalElevation: 8.0,
+        navigationRailMutedUnselectedLabel: false,
+        navigationRailMutedUnselectedIcon: false,
+        navigationRailIndicatorSchemeColor: SchemeColor.error,
+        navigationRailIndicatorOpacity: 0.13,
+        navigationRailBackgroundSchemeColor: SchemeColor.tertiary,
+        navigationRailOpacity: 0.40,
+        navigationRailElevation: 7.5,
+        navigationRailLabelType: NavigationRailLabelType.none,
+      ),
+      visualDensity: FlexColorScheme.comfortablePlatformDensity,
+      useMaterial3: true,
+      swapLegacyOnMaterial3: true,
+      fontFamily: GoogleFonts.notoSans().fontFamily,
     );
 
-TextTheme get texts =>  const TextTheme(
-      displaySmall: TextStyle(fontSize: 16,color: Colors.black),
-      displayMedium: TextStyle(fontSize: 18,color: Colors.black),
-      displayLarge: TextStyle(fontSize: 20,color: Colors.black),
-    );
-
-BottomNavigationBarThemeData get bottomNavStyle =>
-    const BottomNavigationBarThemeData(
-        backgroundColor: _primaryColor,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: _secondColor);
-
-const _brightColorSchema = ColorScheme.light(
-    primary: _primaryColor,
-    secondary: _secondColor,
-    tertiary: _accentColor,
-    tertiaryContainer: _secondAccentColor,
-    error: _error);
-
-/// endregion
-
-const _darkColorSchema = ColorScheme.dark(
-    primary: _primaryColor,
-    secondary: _secondColor,
-    // primaryContainer: _accentColor,
-    // secondaryContainer: _secondAccentColor,
-    tertiary: _accentColor,
-    tertiaryContainer: _secondAccentColor,
-    error: _error);
-
-/// add all schema's for [themeLight] and [themeDark] themes for the application
-ThemeData get themeLight => ThemeData(
-    primaryColor: _primaryColor,
-    colorScheme: _brightColorSchema,
-    textTheme: texts,
-
-    bottomNavigationBarTheme: bottomNavStyle,
-    cardTheme: cards,
-    iconTheme: icons);
-
-ThemeData get themeDark => ThemeData(
-    colorScheme: _darkColorSchema,
-    textTheme: texts,
-    cardTheme: cards,
-    bottomNavigationBarTheme: bottomNavStyle);
+get themeDark => FlexThemeData.dark(
+    scheme: FlexScheme.mango,
+    surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+    blendLevel: 15,
+    subThemesData: const FlexSubThemesData(
+      blendOnLevel: 20,
+      textButtonRadius: 14.0,
+      elevatedButtonRadius: 14.0,
+      outlinedButtonRadius: 14.0,
+      toggleButtonsRadius: 8.0,
+      toggleButtonsBorderWidth: 1.0,
+      switchSchemeColor: SchemeColor.tertiary,
+      checkboxSchemeColor: SchemeColor.tertiary,
+      radioSchemeColor: SchemeColor.tertiary,
+      sliderBaseSchemeColor: SchemeColor.tertiary,
+      sliderValueTinted: true,
+      sliderTrackHeight: 6,
+      inputDecoratorRadius: 11.0,
+      fabUseShape: true,
+      fabAlwaysCircular: true,
+      fabSchemeColor: SchemeColor.tertiary,
+      chipSchemeColor: SchemeColor.tertiary,
+      chipSelectedSchemeColor: SchemeColor.primary,
+      chipDeleteIconSchemeColor: SchemeColor.error,
+      chipRadius: 5.0,
+      cardRadius: 6.0,
+      dialogBackgroundSchemeColor: SchemeColor.secondary,
+      dialogRadius: 8.0,
+      timePickerDialogRadius: 8.0,
+      snackBarBackgroundSchemeColor: SchemeColor.primaryContainer,
+      bottomSheetRadius: 22.0,
+      bottomSheetElevation: 8.0,
+      bottomSheetModalElevation: 8.0,
+      navigationRailMutedUnselectedLabel: false,
+      navigationRailMutedUnselectedIcon: false,
+      navigationRailIndicatorSchemeColor: SchemeColor.error,
+      navigationRailIndicatorOpacity: 0.13,
+      navigationRailBackgroundSchemeColor: SchemeColor.tertiary,
+      navigationRailOpacity: 0.40,
+      navigationRailElevation: 7.5,
+      navigationRailLabelType: NavigationRailLabelType.none,
+    ),
+    visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    useMaterial3: true,
+    swapLegacyOnMaterial3: true,
+    fontFamily: GoogleFonts.notoSans().fontFamily);
