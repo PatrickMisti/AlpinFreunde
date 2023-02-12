@@ -51,12 +51,10 @@ class SettingsModel extends BaseModel {
 
   /// preparation for listview
   /// add functions here
-  generateFormView() {
+  List generateFormView() {
     return [
-      ListTileModel(title: translation(context).settingsProfileLabel),
       ListTileModel(
           title: translation(context).settingsProfileEdit,
-          subTree: 1,
           icon: Icons.account_box,
           trailing: const Icon(Icons.arrow_forward_ios),
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
@@ -64,32 +62,50 @@ class SettingsModel extends BaseModel {
               ))),
       ListTileModel(
           title: translation(context).resetPassword,
-          subTree: 1,
           icon: Icons.password,
           trailing: const Icon(Icons.arrow_forward_ios),
           onTap: () => Navigator.of(context)
               .pushNamed(RouterGenerator.resetPasswordView)),
-      ListTileModel(title: translation(context).settingsPreferencesLabel),
       ListTileModel(
           title: translation(context).settingsLanguage,
-          subTree: 1,
           icon: Icons.language,
           trailing: const Icon(Icons.arrow_forward_ios)),
       ListTileModel(
-          subTree: 1,
           title: translation(context).settingsThemeMode,
           icon: Icons.mode_night_outlined,
           trailing: ReactiveSwitch(formControl: themeModeSwitch)),
       ListTileModel(
           title: translation(context).emailPush,
-          subTree: 1,
           icon: Icons.attach_email_outlined,
           trailing: ReactiveSwitch(formControl: emailPushSwitch)),
       ListTileModel(
           title: translation(context).push,
-          subTree: 1,
           icon: Icons.push_pin,
-          trailing: ReactiveSwitch(formControl: pushSwitch))
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),ListTileModel(
+          title: translation(context).push,
+          icon: Icons.push_pin,
+          trailing: ReactiveSwitch(formControl: pushSwitch)),
     ];
   }
 }

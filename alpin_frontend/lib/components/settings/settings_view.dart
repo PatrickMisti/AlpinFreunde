@@ -1,8 +1,10 @@
 import 'package:alpin_frontend/components/base_widget.dart';
 import 'package:alpin_frontend/components/settings/edit_profile_image/edit_profile_image_view.dart';
 import 'package:alpin_frontend/components/settings/settings_model.dart';
+import 'package:alpin_frontend/model/widget/list_tile_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
-import 'package:alpin_frontend/widgets/form_widget.dart';
+import 'package:alpin_frontend/widgets/CustomSliverAppBar.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -20,21 +22,19 @@ class SettingsView extends StatelessWidget implements BaseWidget {
         viewModelBuilder: () => SettingsModel(context),
         builder: (context, model, child) {
           Size size = MediaQuery.of(context).size;
-          return ListView(
-            padding: const EdgeInsets.only(top: 5),
-            children: [
-              ConstrainedBox(
-                  constraints:
-                  BoxConstraints.tightFor(width: size.width * .4),
-                  child: Column(children: [
+          return CustomScrollView(
+            slivers: [
+              CustomSliverAppBar(title: getAppBarName(context)),
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
                     Container(
-                      padding: const EdgeInsets.all(2),
-                      width: double.infinity,
+                      // alignment: Alignment.center,
                       height: 130,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage(_defaultImage)),
+                        image:
+                            DecorationImage(image: AssetImage(_defaultImage)),
                       ),
                     ),
                     Padding(
@@ -43,8 +43,7 @@ class SettingsView extends StatelessWidget implements BaseWidget {
                         minWidth: 150,
                         color: Theme.of(context).primaryColor,
                         textColor: Theme.of(context).secondaryHeaderColor,
-                        child:
-                        Text(translation(context).changeProfileImage),
+                        child: Text(translation(context).changeProfileImage),
                         onPressed: () {
                           showDialog(
                             context: context,
@@ -56,8 +55,41 @@ class SettingsView extends StatelessWidget implements BaseWidget {
                         },
                       ),
                     ),
-                  ])),
-              FormWidgetView(inputForm: model.generateFormView())
+                  ],
+                ),
+              ),
+              SliverList(
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                ListTileModel element = (model.generateFormView())[index];
+                return Column(
+                  children: [
+                    ListTile(
+                      onTap: element.onTap,
+                      title: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Icon(element.icon),
+                          ),
+                          Flexible(
+                            child: Text(
+                              element.title,
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              textAlign: TextAlign.start,
+                            ),
+                          )
+                        ],
+                      ),
+                      trailing: element.trailing,
+                    ),
+                    if (index < model.generateFormView().length - 1)
+                      const Divider(
+                        height: 2,
+                      )
+                  ],
+                );
+              }, childCount: model.generateFormView().length))
             ],
           );
         },
