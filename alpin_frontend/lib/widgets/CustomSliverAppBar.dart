@@ -53,8 +53,7 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar> {
   @override
   Widget build(BuildContext context) {
     debugPrint("platform ${_platform == null} && ${_service.currentPlatform}");
-    if (_platform == null )
-      _platform = TargetPlatform.android;
+    _platform ??= TargetPlatform.android;
     switch(_platform) {
       case TargetPlatform.iOS:
         return headerIOS(context);
