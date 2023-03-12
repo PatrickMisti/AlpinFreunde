@@ -1,5 +1,4 @@
 
-import 'package:alpin_frontend/model/widget/bottom_navigation_model.dart';
 import 'package:alpin_frontend/services/disposabled.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stacked/stacked.dart';
@@ -8,7 +7,7 @@ import 'package:stacked/stacked.dart';
 ///
 /// [setState] function updated the ui
 /// [dispose] function close all streams
-class BaseModel extends BaseViewModel with DisposableState, BottomNavigationModel {
+class BaseModel extends BaseViewModel with DisposableState {
   final BuildContext context;
 
   BaseModel(this.context): super() {

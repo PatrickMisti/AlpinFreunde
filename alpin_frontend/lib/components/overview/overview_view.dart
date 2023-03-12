@@ -3,8 +3,10 @@ import 'package:alpin_frontend/components/home_screen/home_screen_view.dart';
 import 'package:alpin_frontend/components/newsfeed/newsfeed_view.dart';
 import 'package:alpin_frontend/components/overview/overview_model.dart';
 import 'package:alpin_frontend/components/settings/settings_view.dart';
+import 'package:alpin_frontend/widgets/customSliverAppBar.dart';
 import 'package:alpin_frontend/widgets/icon_button_material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -36,6 +38,11 @@ class OverviewView extends StatelessWidget {
                         foregroundImage:
                             AssetImage('lib/assets/images/default-image.png')),
                   )
+              ],
+            ),*/
+            /*body: CustomScrollView(
+              slivers: [
+                CustomSliverAppBar(title: model.getScreenTitle())
               ],
             ),*/
             body: PageView.builder(

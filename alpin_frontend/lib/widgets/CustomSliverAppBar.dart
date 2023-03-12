@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:alpin_frontend/services/system_settings_service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:rxdart/rxdart.dart';
 
 class CustomSliverAppBar extends StatefulWidget {
   final Widget? leading;
@@ -16,25 +20,33 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar> {
   GetIt getIt = GetIt.instance;
   TargetPlatform? _platform;
   late SystemSettingsService _service;
+  late StreamSubscription? _platformService;
 
   @override
   void initState() {
     _service = getIt.get<SystemSettingsService>();
-    _service.platform.listen((event) {
+    _platformService = _service.platform.listen((event) {
       setState(() {
         _platform = event;
       });
     });
   }
 
+  @override
+  void dispose() {
+    _platformService?.cancel();
+    super.dispose();
+  }
+
   //region build
   headerIOS(BuildContext context) {
-    return SliverAppBar(
-      title: Text(widget.title),
+    return CupertinoSliverNavigationBar(
+      largeTitle: Text(widget.title),
       automaticallyImplyLeading: false,
-      leading: widget.leading,
-      actions: widget.tail,
-      toolbarHeight: kToolbarHeight,
+      // leading: widget.leading,
+      // trailing: Column(children: widget.tail!),
+      // actions: widget.tail,
+      // toolbarHeight: kToolbarHeight,
     );
   }
 

@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 
 class HomeScreenModel extends BaseModel {
   bool onCalender = true;
+  bool isListView = false;
+
   final List<TripAppointment> appointments = MockData.TRIPAPPOINTMENTS;
   HomeScreenModel(BuildContext context) : super(context){
     print('init Home');
@@ -14,6 +16,11 @@ class HomeScreenModel extends BaseModel {
   void changeHomeScreen() {
     onCalender = !onCalender;
     setState();
+  }
+
+  void changeView() {
+    isListView = !isListView;
+    notifyListeners();
   }
 
 }

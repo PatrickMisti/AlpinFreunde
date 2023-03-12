@@ -3,7 +3,7 @@ import 'package:alpin_frontend/components/settings/edit_profile_image/edit_profi
 import 'package:alpin_frontend/components/settings/settings_model.dart';
 import 'package:alpin_frontend/model/widget/list_tile_model.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
-import 'package:alpin_frontend/widgets/CustomSliverAppBar.dart';
+import 'package:alpin_frontend/widgets/customSliverAppBar.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';

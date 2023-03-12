@@ -12,6 +12,7 @@ import 'package:alpin_frontend/utilities/http_wrapper.dart';
 import 'package:catcher/catcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -66,7 +67,7 @@ class Alpin extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         locale: model.locale,
-        theme: model.theme == ThemeMode.light ? themeLight : themeDark,
+        // theme: model.theme == ThemeMode.light ? themeLight : themeDark,
         onGenerateRoute: RouterGenerator.generateRoute,
         builder: (context, child) => responsiveWrapper(child),
         initialRoute: RouterGenerator.overviewView,
@@ -79,6 +80,7 @@ class Alpin extends StatelessWidget {
     return ViewModelBuilder<HomeWidget>.reactive(
       viewModelBuilder: () {
         HomeWidget.getEssentialServices();
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
         return HomeWidget(context);
       },
       builder: (context, model, child) {
@@ -123,6 +125,7 @@ class HomeWidget extends BaseModel {
         : Locale(Platform.localeName);
     _translationService.setLocale(locale);
     _systemSettingsService.setPlatform = Theme.of(context).platform;
+    // _systemSettingsService.setPlatform = TargetPlatform.iOS;
     _systemSettingsService.setTheme = ThemeMode.light;
     registerService();
   }

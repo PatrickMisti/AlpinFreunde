@@ -5,6 +5,7 @@ import 'package:alpin_frontend/components/home_screen/home_screen_view.dart';
 import 'package:alpin_frontend/components/newsfeed/newsfeed_view.dart';
 import 'package:alpin_frontend/config.dart';
 import 'package:alpin_frontend/services/language-provider/translation-service.dart';
+import 'package:alpin_frontend/services/system_settings_service.dart';
 import 'package:alpin_frontend/services/youtube_service.dart';
 import 'package:alpin_frontend/utilities/exceptions.dart';
 import 'package:catcher/catcher.dart';
@@ -14,15 +15,32 @@ import 'package:get_it/get_it.dart';
 
 class OverviewModel extends BaseModel  {
   List<MapEntry<IconData, BaseWidget>> screens = Config.pageConfig;
+  final GetIt getIt = GetIt.I;
+  // region Services
+  late SystemSettingsService? _settingsService = null;
+  // endregion
+
+  // region BottomNav
   late PageController controller;
   final curveAnimation = Curves.easeInOutQuart;
   final durationOfAnimation = const Duration(milliseconds: 700);
+  int naviIndex = 0;
+  // endregion
   bool switchToNews = false;
-  final GetIt getIt = GetIt.I;
+
+  // region surface actions
+  TargetPlatform platform = TargetPlatform.android;
+  // endregion
 
   OverviewModel(BuildContext _context) : super(_context) {
     controller = PageController(initialPage: naviIndex, keepPage: true);
+
     registerServices();
+
+    sink = _settingsService!.platform.listen((TargetPlatform event) {
+      platform = event;
+      notifyListeners();
+    });
   }
 
   get getCurrentWidget => screens[naviIndex].value;
@@ -43,9 +61,10 @@ class OverviewModel extends BaseModel  {
     }
   }
 
-  @override
   void changeIndexNavi(int index) {
-    super.changeIndexNavi(index);
+    if (index == naviIndex) return;
+
+    naviIndex = index;
     controller.jumpToPage(index);
     setState();
   }
@@ -61,9 +80,10 @@ class OverviewModel extends BaseModel  {
     setState();
   }
 
-  ///region all services and dispose
+  //region all services and dispose
   registerServices() {
     getIt.registerLazySingleton(() => YoutubeService());
+    _settingsService = getIt.get<SystemSettingsService>();
   }
 
   @override
@@ -73,4 +93,5 @@ class OverviewModel extends BaseModel  {
     final youtube = getIt.get<YoutubeService>();
     getIt.unregister(instance: youtube);
   }
+  // endregion
 }

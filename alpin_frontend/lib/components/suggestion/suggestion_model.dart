@@ -17,14 +17,14 @@ class SuggestionModel extends BaseModel {
     loadingSuggestions();
   }
 
-  loadingSuggestions() async {
+  Future<List<TripSuggestion>> loadingSuggestions() async {
     // todo make call
     // finished isLoading true;
     // if error show not found error on view
     await Future.delayed(Duration(seconds: 1));
     list.addAll(MockData.TRIP_SUGGESTIONS);
     isLoading = list.isNotEmpty;
-    setState();
+    return list;
   }
 
   showDialogSuggestion() async {
