@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  delted    Boolean  @default(false)
+  timestamp DateTime
+
+  name       String
+  permission String?
+  isAdmin    Boolean
+  User       User[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  deleted   Boolean  @default(false)
+  timestamp DateTime
+  role      Role     @relation(fields: [roleId], references: [id])
+  roleId    Int      @unique
+
+  firstName String?
+  lastName  String?
+  userName  String
+
+  email             String              @unique
+  pushNotification  Boolean
+  UserOnAppointment UserOnAppointment[]
+}
+
+model Appointment {
+  id        Int      @id @default(autoincrement())
+  deleted   Boolean  @default(false)
+  timestamp DateTime
+
+  date             DateTime
+  location         String?
+  locationName     String
+  phoneNumber      Int?
+  heightDifference Decimal?
+  source           String?
+  gps              String?
+  distance         Decimal?
+
+  title              String
+  category           String?
+  description        String?
+  warningDescription String?
+  isTicketNeeded     Boolean             @default(false)
+  UserOnAppointment  UserOnAppointment[]
+}
+
+model UserOnAppointment {
+  id        Int      @id @default(autoincrement())
+  deleted   Boolean  @default(false)
+  timestamp DateTime
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @unique
+
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointmentId Int         @unique
+}
