@@ -27,7 +27,7 @@ class ResetPasswordView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 25, vertical: 15),
                       child: Text(translation(context).resetPasswordFirst,
-                          style: const TextStyle(fontSize: 16),
+                          /*style: const TextStyle(fontSize: 16),*/
                           textAlign: TextAlign.start),
                     ),
                   ),
@@ -73,7 +73,7 @@ class ResetPasswordView extends StatelessWidget {
                                       validator: (validator) {
                                         if (validator == null) return null;
                                         if (validator.length < 4) return null;
-                                        var checkIt = validator?.trim();
+                                        var checkIt = validator.trim(); //review removed ?.
                                         if (model.twoFacCode != checkIt)
                                           return translation(context)
                                               .resetPassInvalid('Code');

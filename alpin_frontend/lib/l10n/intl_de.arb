@@ -8,6 +8,7 @@
     "username": "Name",
     "password": "Password",
     "email": "Email",
+    "appointments": "Aktuelle Termine",
     "incorrectEmail": "Email ist falsch",
     "incorrectPassword": "Password is incorrect",
     "toShortPassword": "Password is to short",
@@ -41,5 +42,35 @@
         "placeholders": {
             "name": {}
         }
-    }
+    },
+    "settings": "Einstellungen",
+    "changeProfileImage": "Profilbild ändern",
+    "settingsProfileLabel": "Profil",
+    "settingsProfileEdit": "Profil ändern",
+    "settingsPreferencesLabel": "Priorität",
+    "settingsLanguage": "Sprache",
+    "settingsThemeMode": "Dark Mode",
+    "tourSuggestion": "Tourenvorschläge",
+    "addNewTourSuggestion": "Neuer Tourenvorschlag hinzufügen",
+    "addLink": "Add link",
+    "addTitle": "Add title",
+    "addDescription": "Add description",
+    "link": "Link",
+    "text": "Beschreibung",
+    "toShort": "{name} is to short",
+    "@toShort": {
+        "placeholders": {
+            "name":{}
+        }
+    },
+    "textTitle": "Titel",
+    "spendBeer": "Bier spenden!",
+    "beer": "Bier",
+    "spendBeerDesc": "Du möchtest mir was gutes tun?\nDann lade mich auf ein Bier ein.",
+    "venue": "Veranstaltungsort",
+    "news": "Newsfeed",
+    "widgetNotFound": "Widget nicht gefunden",
+    "foundNoContent": "Es wurde kein Kontent gefunden!!",
+    "foundNoYoutubeVideo": "Es wurde kein Video gefunden!",
+    "ok": "OK"
 }

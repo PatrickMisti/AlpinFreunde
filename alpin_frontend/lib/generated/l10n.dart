@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Upcoming appointment`
+  String get appointments {
+    return Intl.message(
+      'Upcoming appointment',
+      name: 'appointments',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email is incorrect`
   String get incorrectEmail {
     return Intl.message(
@@ -377,6 +387,256 @@ class S {
       name: 'alreadyExists',
       desc: '',
       args: [name],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Image`
+  String get changeProfileImage {
+    return Intl.message(
+      'Edit Image',
+      name: 'changeProfileImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get settingsProfileLabel {
+    return Intl.message(
+      'Profile',
+      name: 'settingsProfileLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get settingsProfileEdit {
+    return Intl.message(
+      'Edit Profile',
+      name: 'settingsProfileEdit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preferences`
+  String get settingsPreferencesLabel {
+    return Intl.message(
+      'Preferences',
+      name: 'settingsPreferencesLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get settingsLanguage {
+    return Intl.message(
+      'Language',
+      name: 'settingsLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get settingsThemeMode {
+    return Intl.message(
+      'Dark Mode',
+      name: 'settingsThemeMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tour suggestions`
+  String get tourSuggestion {
+    return Intl.message(
+      'Tour suggestions',
+      name: 'tourSuggestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new tour suggestion`
+  String get addNewTourSuggestion {
+    return Intl.message(
+      'Add new tour suggestion',
+      name: 'addNewTourSuggestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add link`
+  String get addLink {
+    return Intl.message(
+      'Add link',
+      name: 'addLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add title`
+  String get addTitle {
+    return Intl.message(
+      'Add title',
+      name: 'addTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add description`
+  String get addDescription {
+    return Intl.message(
+      'Add description',
+      name: 'addDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `link`
+  String get link {
+    return Intl.message(
+      'link',
+      name: 'link',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `text`
+  String get text {
+    return Intl.message(
+      'text',
+      name: 'text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{name} is to short`
+  String toShort(Object name) {
+    return Intl.message(
+      '$name is to short',
+      name: 'toShort',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `title`
+  String get textTitle {
+    return Intl.message(
+      'title',
+      name: 'textTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spend a beer!`
+  String get spendBeer {
+    return Intl.message(
+      'Spend a beer!',
+      name: 'spendBeer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Beer`
+  String get beer {
+    return Intl.message(
+      'Beer',
+      name: 'beer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to do something for us?\nThen buy me a beer.`
+  String get spendBeerDesc {
+    return Intl.message(
+      'Do you want to do something for us?\nThen buy me a beer.',
+      name: 'spendBeerDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Venue`
+  String get venue {
+    return Intl.message(
+      'Venue',
+      name: 'venue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Newsfeed`
+  String get news {
+    return Intl.message(
+      'Newsfeed',
+      name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Widget not found`
+  String get widgetNotFound {
+    return Intl.message(
+      'Widget not found',
+      name: 'widgetNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Content not found!!`
+  String get foundNoContent {
+    return Intl.message(
+      'Content not found!!',
+      name: 'foundNoContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video couldn't found!`
+  String get foundNoYoutubeVideo {
+    return Intl.message(
+      'Video couldn\'t found!',
+      name: 'foundNoYoutubeVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
+      desc: '',
+      args: [],
     );
   }
 }

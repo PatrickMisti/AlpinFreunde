@@ -8,6 +8,7 @@
     "username": "Name",
     "password": "Passwort",
     "email": "Email",
+    "appointments": "Upcoming appointment",
     "incorrectEmail": "Email is incorrect",
     "incorrectPassword": "Password is incorrect",
     "toShortPassword": "Password is to short",
@@ -41,5 +42,35 @@
         "placeholders": {
             "name": {}
         }
-    }
+    },
+    "settings": "Settings",
+    "changeProfileImage": "Edit Image",
+    "settingsProfileLabel": "Profile",
+    "settingsProfileEdit": "Edit Profile",
+    "settingsPreferencesLabel": "Preferences",
+    "settingsLanguage": "Language",
+    "settingsThemeMode": "Dark Mode",
+    "tourSuggestion": "Tour suggestions",
+    "addNewTourSuggestion": "Add new tour suggestion",
+    "addLink": "Add link",
+    "addTitle": "Add title",
+    "addDescription": "Add description",
+    "link": "link",
+    "text": "text",
+    "toShort": "{name} is to short",
+    "@toShort": {
+        "placeholders": {
+            "name":{}
+        }
+    },
+    "textTitle": "title",
+    "spendBeer": "Spend a beer!",
+    "beer": "Beer",
+    "spendBeerDesc": "Do you want to do something for us?\nThen buy me a beer.",
+    "venue": "Venue",
+    "news": "Newsfeed",
+    "widgetNotFound": "Widget not found",
+    "foundNoContent": "Content not found!!",
+    "foundNoYoutubeVideo": "Video couldn't found!",
+    "ok": "OK"
 }

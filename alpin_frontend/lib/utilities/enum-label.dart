@@ -1,5 +1,0 @@
-
-enum LanguageCode {
-  de,
-  en,
-}

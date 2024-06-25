@@ -24,24 +24,44 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(name) => "The ${name} is invalid";
 
+  static String m2(name) => "${name} is to short";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addDescription":
+            MessageLookupByLibrary.simpleMessage("Add description"),
+        "addLink": MessageLookupByLibrary.simpleMessage("Add link"),
+        "addNewTourSuggestion":
+            MessageLookupByLibrary.simpleMessage("Add new tour suggestion"),
+        "addTitle": MessageLookupByLibrary.simpleMessage("Add title"),
         "alreadyExists": m0,
+        "appointments":
+            MessageLookupByLibrary.simpleMessage("Upcoming appointment"),
+        "beer": MessageLookupByLibrary.simpleMessage("Beer"),
+        "changeProfileImage":
+            MessageLookupByLibrary.simpleMessage("Edit Image"),
         "continueWithoutLogin":
             MessageLookupByLibrary.simpleMessage("Continue without Sign in"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailPush": MessageLookupByLibrary.simpleMessage(
             "Send e-mail push notification"),
         "firstName": MessageLookupByLibrary.simpleMessage("Firstname"),
+        "foundNoContent":
+            MessageLookupByLibrary.simpleMessage("Content not found!!"),
+        "foundNoYoutubeVideo":
+            MessageLookupByLibrary.simpleMessage("Video couldn\'t found!"),
         "incorrectEmail":
             MessageLookupByLibrary.simpleMessage("Email is incorrect"),
         "incorrectPassword":
             MessageLookupByLibrary.simpleMessage("Password is incorrect"),
         "lastName": MessageLookupByLibrary.simpleMessage("Lastname"),
+        "link": MessageLookupByLibrary.simpleMessage("link"),
         "loginLetsStart": MessageLookupByLibrary.simpleMessage("Let`s Start!"),
         "loginSwipe": MessageLookupByLibrary.simpleMessage("Swipe"),
         "loginSwipeLeft":
             MessageLookupByLibrary.simpleMessage("Left to Sign in"),
+        "news": MessageLookupByLibrary.simpleMessage("Newsfeed"),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "password": MessageLookupByLibrary.simpleMessage("Passwort"),
         "passwordForget":
             MessageLookupByLibrary.simpleMessage("Forget your password?"),
@@ -67,6 +87,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "resetPasswordFirst": MessageLookupByLibrary.simpleMessage(
             "You lost your password? No problem! Follow the instructions step by step"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "settingsLanguage": MessageLookupByLibrary.simpleMessage("Language"),
+        "settingsPreferencesLabel":
+            MessageLookupByLibrary.simpleMessage("Preferences"),
+        "settingsProfileEdit":
+            MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "settingsProfileLabel": MessageLookupByLibrary.simpleMessage("Profile"),
+        "settingsThemeMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInButtonLocal":
             MessageLookupByLibrary.simpleMessage("Sign in and up the mountain"),
@@ -74,9 +102,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create Your Account"),
         "signUpIfNoAccount": MessageLookupByLibrary.simpleMessage(
             "Oh no! I don´t have any account"),
+        "spendBeer": MessageLookupByLibrary.simpleMessage("Spend a beer!"),
+        "spendBeerDesc": MessageLookupByLibrary.simpleMessage(
+            "Do you want to do something for us?\nThen buy me a beer."),
+        "text": MessageLookupByLibrary.simpleMessage("text"),
+        "textTitle": MessageLookupByLibrary.simpleMessage("title"),
         "title": MessageLookupByLibrary.simpleMessage("AlpinFreunde"),
+        "toShort": m2,
         "toShortPassword":
             MessageLookupByLibrary.simpleMessage("Password is to short"),
-        "username": MessageLookupByLibrary.simpleMessage("Name")
+        "tourSuggestion":
+            MessageLookupByLibrary.simpleMessage("Tour suggestions"),
+        "username": MessageLookupByLibrary.simpleMessage("Name"),
+        "venue": MessageLookupByLibrary.simpleMessage("Venue"),
+        "widgetNotFound":
+            MessageLookupByLibrary.simpleMessage("Widget not found")
       };
 }
