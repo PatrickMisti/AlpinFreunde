@@ -9,8 +9,19 @@ async function main() {
   if (count === 0) {
     const user1 = prisma.user.create({
       data: {
-        name: 'Herbert',
+        userName: 'depp',
         email: 'herbert@gmail.com',
+        timestamp: new Date(Date.now()),
+        pushNotification: false,
+        password: '12435',
+        role: {
+          create: {
+            name: 'admin',
+            isAdmin: true,
+            timestamp: new Date(Date.now()),
+          }
+        },
+
       },
     });
     console.log('create user:', user1);

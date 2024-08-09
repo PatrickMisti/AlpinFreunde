@@ -12,11 +12,11 @@ export class UserService {
   }
 
   createUser(user: UserDto) {
-    return this.prisma.user.create({
-      data: {
-        name: user.name,
+    return /*this.prisma.user.create({
+      /!*data: {
+        userName: user.name,
         email: user.email,
-      },
-    });
+      },*!/
+    });*/
   }
 }

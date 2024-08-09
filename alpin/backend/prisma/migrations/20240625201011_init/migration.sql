@@ -1,25 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the column `name` on the `User` table. All the data in the column will be lost.
-  - A unique constraint covering the columns `[roleId]` on the table `User` will be added. If there are existing duplicate values, this will fail.
-  - A unique constraint covering the columns `[email]` on the table `User` will be added. If there are existing duplicate values, this will fail.
-  - Added the required column `pushNotification` to the `User` table without a default value. This is not possible if the table is not empty.
-  - Added the required column `roleId` to the `User` table without a default value. This is not possible if the table is not empty.
-  - Added the required column `timestamp` to the `User` table without a default value. This is not possible if the table is not empty.
-  - Added the required column `userName` to the `User` table without a default value. This is not possible if the table is not empty.
-
-*/
--- AlterTable
-ALTER TABLE "User" DROP COLUMN "name",
-ADD COLUMN     "deleted" BOOLEAN NOT NULL DEFAULT false,
-ADD COLUMN     "firstName" TEXT,
-ADD COLUMN     "lastName" TEXT,
-ADD COLUMN     "pushNotification" BOOLEAN NOT NULL,
-ADD COLUMN     "roleId" INTEGER NOT NULL,
-ADD COLUMN     "timestamp" TIMESTAMP(3) NOT NULL,
-ADD COLUMN     "userName" TEXT NOT NULL;
-
 -- CreateTable
 CREATE TABLE "Role" (
     "id" SERIAL NOT NULL,
@@ -30,6 +8,22 @@ CREATE TABLE "Role" (
     "isAdmin" BOOLEAN NOT NULL,
 
     CONSTRAINT "Role_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "User" (
+    "id" SERIAL NOT NULL,
+    "deleted" BOOLEAN NOT NULL DEFAULT false,
+    "timestamp" TIMESTAMP(3) NOT NULL,
+    "roleId" INTEGER NOT NULL,
+    "firstName" TEXT,
+    "lastName" TEXT,
+    "userName" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "pushNotification" BOOLEAN NOT NULL DEFAULT false,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -66,16 +60,16 @@ CREATE TABLE "UserOnAppointment" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "UserOnAppointment_userId_key" ON "UserOnAppointment"("userId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "UserOnAppointment_appointmentId_key" ON "UserOnAppointment"("appointmentId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "User_roleId_key" ON "User"("roleId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "UserOnAppointment_userId_key" ON "UserOnAppointment"("userId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "UserOnAppointment_appointmentId_key" ON "UserOnAppointment"("appointmentId");
 
 -- AddForeignKey
 ALTER TABLE "User" ADD CONSTRAINT "User_roleId_fkey" FOREIGN KEY ("roleId") REFERENCES "Role"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
